@@ -1,0 +1,100 @@
+<po-page-default p-title="Alteração de Igreja">
+
+  <div class="po-row">
+    <div class="po-lg-10 po-offset-lg-1 po-xl-10 po-offset-xl-1">
+      <form #formProduto="ngForm">
+        <po-container>
+          <po-input
+            class="po-md-8"
+            [(ngModel)]="mapa.descigreja"
+            name="descigreja"
+            p-label='Insira a Igreja'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="true"
+            p-placeholder="Insira a Descrição da Igreja.">
+          </po-input>
+
+          <po-input class="po-md-4"
+            name="codrelat"
+            [(ngModel)]="mapa.codrelat"
+            p-auto-focus="boolean"
+            p-clean="true"
+            p-label="Código do Relatório"
+            p-optional="true"
+            p-mask="99-9999"
+            p-placeholder="Insira o código do Relatório"
+            p-required="false">
+          </po-input>
+
+          <po-number class="po-md-4"
+            name="atalho"
+            [(ngModel)]="mapa.atalho"
+            p-auto-focus="boolean"
+            p-clean="true"
+            p-label="Atalho"
+            p-optional="true"
+            p-placeholder="Insira o Atalho"
+            p-required="false">
+          </po-number>
+
+          <po-input
+            class="po-md-8"
+            [(ngModel)]="mapa.endereco"
+            name="endereco"
+            p-label='Insira o endereço'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="true"
+            p-placeholder="Insira o endereço completo.">
+          </po-input>
+
+          <po-input
+            class="po-md-6"
+            [(ngModel)]="mapa.tel"
+            name="tel"
+            p-label='Insira o Telefone'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="false"
+            p-mask="(99)99999-9999"
+            p-placeholder="Insira o Telefone">
+          </po-input>
+
+          <po-input
+            class="po-md-6"
+            [(ngModel)]="mapa.cep"
+            name="cep"
+            p-label='Insira o CEP'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="true"
+            p-mask="99999-999"
+            p-placeholder="Insira o CEP">
+          </po-input>
+
+        </po-container>
+        <po-container>
+          <div class="po-row">
+            <po-button
+              class="po-md-3"
+              p-label="Salvar"
+
+              (p-click)="alteraIgreja()"
+            >
+            </po-button>
+            <po-button
+              class="po-md-3"
+              p-label="Cancelar"
+              (p-click)="CancelGrava()"
+            >
+            </po-button>
+          </div>
+        </po-container>
+      </form>
+
+    </div>
+  </div>
+
+</po-page-default>
+

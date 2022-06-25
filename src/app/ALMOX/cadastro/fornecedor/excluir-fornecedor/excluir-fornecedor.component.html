@@ -1,0 +1,105 @@
+<po-page-default p-title="Inclusão de Fornecedor">
+
+  <div class="po-row">
+    <div class="po-lg-10 po-offset-lg-1 po-xl-10 po-offset-xl-1">
+      <form #formProduto="ngForm">
+        <po-container>
+
+          <po-input
+            class="po-md-6"
+            [(ngModel)]="mapa.nome"
+            name="cep"
+            p-label='Insira nome do fornecedor'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="true"
+            p-disabled="true"
+            p-placeholder="Insira nome do fornecedor.">
+          </po-input>
+
+          <po-input class="po-md-3"
+            name="cnpj"
+            [(ngModel)]="mapa.cnpj"
+            p-auto-focus="boolean"
+            p-clean="true"
+            p-label="CNPJ"
+            p-optional="false"
+            p-placeholder="Insira o CNPJ"
+            p-required="true"
+            p-disabled="true"
+            p-mask="99.999.999/999-99">
+          </po-input>
+
+          <po-input
+            id="tipo"
+            class="po-md-2"
+            name="tipo"
+            [(ngModel)]="mapa.tipo"
+            p-label="Tipo"
+            [p-required]="true"
+            p-disabled="true"
+            p-placeholder="Insira o tipo.">
+          </po-input>
+
+          <po-input
+            class="po-md-4"
+            [(ngModel)]="mapa.tel"
+            name="tel"
+            p-label='Insira o Telefone'
+            p-clean="true"
+            p-minlength="1"
+            p-disabled="true"
+            [p-required]="true"
+            p-mask="(99) 99999-9999"
+            p-placeholder="Insira o telefone completo.">
+          </po-input>
+
+          <po-input
+            class="po-md-8"
+            [(ngModel)]="mapa.endereco"
+            name="endereco"
+            p-label='Insira o endereco'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="false"
+            p-disabled="true"
+            p-placeholder="Insira o endereco completo.">
+          </po-input>
+
+          <po-input
+            class="po-md-4"
+            [(ngModel)]="mapa.ultcompra"
+            name="ultcompra"
+            p-label='ultcompra'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="false"
+            p-disabled="true"
+            p-placeholder="ultcompra">
+          </po-input>
+
+        </po-container>
+        <po-container>
+          <div class="po-row">
+            <po-button
+              class="po-md-3"
+              p-label="Excluir"
+
+              (p-click)="excluiFornecedor()"
+            >
+            </po-button>
+            <po-button
+              class="po-md-3"
+              p-label="Voltar"
+              (p-click)="CancelGrava()"
+            >
+            </po-button>
+          </div>
+        </po-container>
+      </form>
+
+    </div>
+  </div>
+
+</po-page-default>
+

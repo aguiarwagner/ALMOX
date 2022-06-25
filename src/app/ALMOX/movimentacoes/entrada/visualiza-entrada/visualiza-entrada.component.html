@@ -1,0 +1,85 @@
+<po-page-default p-title="Visualização de Entrada">
+
+  <div class="po-row">
+    <div class="po-md-12">
+      <form #formEntrada="ngForm">
+
+        <po-container>
+          <blockquote id="blockquote">Informações do Cabeçalho</blockquote>
+          <po-select
+            class="po-md-4"
+            [(ngModel)]="descfornec"
+            name="descfornec"
+            p-label='Fornecedor'
+            p-clean="true"
+            p-minlength="1"
+
+            [p-required]="true"
+            p-placeholder="Selecione o Fornecedor">
+          </po-select>
+
+          <po-input
+            class="po-md-4"
+            [(ngModel)]="numnf"
+            name="numnf"
+            p-label='Nota Fiscal'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="true"
+            p-placeholder="Número da NF">
+          </po-input>
+
+          <po-number class="po-md-2"
+            name="serienf"
+            [(ngModel)]="serienf"
+            p-auto-focus="boolean"
+            p-clean="true"
+            p-label="Série"
+            p-placeholder="Série da NF"
+            p-required="false">
+          </po-number>
+
+
+          <po-datepicker
+            class="po-md-2"
+            name="datent"
+            [(ngModel)]="datent"
+
+            p-label="Data da Entrada"
+          ></po-datepicker>
+
+        </po-container>
+
+        <po-container>
+          <blockquote id="blockquote">Informações dos Itens</blockquote>
+        </po-container>
+        <po-container>
+          <po-table
+            p-selectable="true"
+            p-hide-select-all="false"
+            [p-selectable]="false"
+            [p-loading]="isLoading"
+
+            [p-columns]="columns"
+            [p-items]="itemsFiltered">
+          </po-table>
+        </po-container>
+
+
+      </form>
+      <po-container>
+        <div class="po-row">
+          <po-button
+            class="po-md-3"
+            p-label="Voltar"
+            (p-click)="Cancel()"
+          >
+          </po-button>
+        </div>
+      </po-container>
+    </div>
+  </div>
+
+
+
+</po-page-default>

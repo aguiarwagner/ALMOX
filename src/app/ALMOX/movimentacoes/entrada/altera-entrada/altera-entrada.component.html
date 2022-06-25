@@ -1,0 +1,21 @@
+<po-page-default p-title="Alteração de  Entrada">
+  <po-container>
+  <table id="table">
+    <tr *ngFor="let dadosLinha of dados">
+        <td id="td">{{dadosLinha.id}}</td>
+        <td>{{dadosLinha.nome}}</td>
+    </tr>
+  </table>
+</po-container>
+
+  <po-container>
+    <div class="po-row">
+      <po-button
+        class="po-md-3"
+        p-label="Voltar"
+        (p-click)="Cancel()"
+      >
+      </po-button>
+    </div>
+  </po-container>
+</po-page-default>

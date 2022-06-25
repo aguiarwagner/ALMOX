@@ -1,0 +1,39 @@
+
+  <po-page-list
+
+  p-show-more-disabled="true"
+  p-title= "Cadastro de Fornecedores"
+  [p-actions]="pageActions"
+  [p-breadcrumb]="breadcrumb"
+  [p-disclaimer-group]="disclaimerGroup"
+  [p-filter]="filterSettings">
+
+  <po-container >
+  <po-button
+    id="btngerar"
+    class="po-md-4"
+    (p-click)= "incluiFornecedor()"
+    [p-loading]="loadButton"
+    p-icon="po-icon po-icon-logo-totvs"
+    [p-label]="labelButton"
+    p-primary="true">
+  </po-button>
+</po-container>
+
+<po-container>
+  <po-table
+
+    p-selectable="true"
+    p-hide-select-all="false"
+    [p-selectable]="false"
+    [p-loading]="isLoading"
+    [p-actions]="tableActions"
+    [p-columns]="columns"
+    [p-items]="itemsFiltered">
+  </po-table>
+
+</po-container>
+</po-page-list>
+
+
+

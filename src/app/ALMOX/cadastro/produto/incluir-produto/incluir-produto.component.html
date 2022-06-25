@@ -1,0 +1,98 @@
+<po-page-default p-title="Inclusão de produto">
+
+  <div class="po-row">
+    <div class="po-lg-10 po-offset-lg-1 po-xl-10 po-offset-xl-1">
+      <form #formProduto="ngForm">
+        <po-container>
+          <po-input
+            class="po-md-4"
+            [(ngModel)]="mapa.codprod"
+            name="codigo"
+            p-label='Código do produto'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="true"
+            p-placeholder="Insira o código do produto.">
+          </po-input>
+
+          <po-input
+            class="po-md-6"
+            [(ngModel)]="mapa.descprod"
+            name="descprod"
+            p-label='Descrição do produto'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="true"
+            p-placeholder="Insira a descrição do produto.">
+          </po-input>
+          <po-number class="po-md-2"
+            name="valunit"
+            [(ngModel)]="mapa.valunit"
+            p-auto-focus="boolean"
+            p-clean="true"
+            p-label="Valor unitário"
+            p-optional="true"
+            p-placeholder="Valor Unitário do Produto"
+            p-required="false">
+          </po-number>
+
+          <po-number class="po-md-4"
+            name="estminimo"
+            [(ngModel)]="mapa.estminimo"
+            p-auto-focus="boolean"
+            p-clean="true"
+            p-label="Estoque mínimo."
+            p-optional="true"
+            p-placeholder="Quantidade mínima em estoque."
+            p-required="false">
+          </po-number>
+
+          <po-select
+            id="unimed"
+            class="po-md-6"
+            name="unimed"
+            [(ngModel)]="mapa.unimed"
+            p-label="Unidade de Medida"
+            [p-options]="SelUnimed"
+            [p-required]="true"
+            p-placeholder="Insira a Unidade de Medida.">
+          </po-select>
+
+        </po-container>
+        <po-container>
+          <div class="po-row">
+            <po-button
+              class="po-md-3"
+              p-label="Salvar"
+
+              (p-click)="gravaProd()"
+            >
+            </po-button>
+            <po-button
+              class="po-md-3"
+              p-label="Cancelar"
+              (p-click)="CancelProd()"
+            >
+            </po-button>
+          </div>
+        </po-container>
+      </form>
+
+    </div>
+  </div>
+
+
+
+</po-page-default>
+<!--
+<po-modal #modalCancelEditProduto
+  p-close
+  p-size="sm"
+  [p-title]=".modalCancelEditProdutoTitle"
+  [p-primary-action]="confirmReturnToListAction"
+  [p-secondary-action]="returnAction">
+
+  <div class="po-font-text-large po-text-left">{{ .modalCancelEditProdutoMessage | [mapa.id]}}</div>
+</po-modal>
+-->
+

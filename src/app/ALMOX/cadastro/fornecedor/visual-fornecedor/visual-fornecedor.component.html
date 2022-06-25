@@ -1,0 +1,126 @@
+<po-page-default p-title="Visualização de Fornecedor">
+
+  <div class="po-row">
+    <div class="po-lg-10 po-offset-lg-1 po-xl-10 po-offset-xl-1">
+      <form #formProduto="ngForm">
+        <po-container>
+
+          <po-input
+            class="po-md-6"
+            [(ngModel)]="mapa.nome"
+            name="cep"
+            p-label='Fornecedor'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="true"
+            p-disabled="true"
+            p-placeholder="Fornecedor.">
+          </po-input>
+
+          <po-input *ngIf="mapa.tipo == 1 || mapa.tipo == undefined"
+            class="po-md-4"
+            name="cnpj"
+            [(ngModel)]="mapa.cnpj"
+            p-auto-focus="boolean"
+            p-clean="true"
+            p-label="CNPJ"
+            p-optional="false"
+            p-placeholder="CNPJ"
+            p-required="true"
+            p-disabled="true"
+            p-mask="99.999.999/999-99">
+          </po-input>
+
+          <po-input *ngIf="mapa.tipo == 2"
+            class="po-md-4"
+            name="cpf"
+            [(ngModel)]="mapa.cnpj"
+            p-auto-focus="boolean"
+            p-clean="true"
+            p-label="CPF"
+            p-optional="false"
+            p-placeholder="CPF"
+            p-required="true"
+            p-disabled="true"
+            p-mask="999.999.999-99">
+          </po-input>
+
+          <po-input
+            id="tipo"
+            class="po-md-2"
+            name="tipo"
+            [(ngModel)]="mapa.tipo"
+            p-label="Tipo"
+            [p-required]="true"
+            p-disabled="true"
+            p-placeholder="Tipo.">
+          </po-input>
+
+          <po-input
+            class="po-md-4"
+            [(ngModel)]="mapa.tel"
+            name="tel"
+            p-label='Telefone'
+            p-clean="true"
+            p-minlength="1"
+            p-disabled="true"
+            [p-required]="true"
+            p-mask="(99) 99999-9999"
+            p-placeholder="Telefone">
+          </po-input>
+
+          <po-input
+            class="po-md-8"
+            [(ngModel)]="mapa.endereco"
+            name="endereco"
+            p-label='Endereço'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="false"
+            p-disabled="true"
+            p-placeholder="Endereco.">
+          </po-input>
+
+          <po-input
+            class="po-md-4"
+            [(ngModel)]="mapa.cep"
+            name="cep"
+            p-label='CEP'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="false"
+            p-mask="99999-999"
+            p-disabled="true"
+            p-placeholder="CEP">
+          </po-input>
+
+          <po-input
+            class="po-md-4"
+            [(ngModel)]="mapa.ultcompra"
+            name="ultcompra"
+            p-label='Última Compra'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="false"
+            p-disabled="true"
+            p-placeholder="Última Compra">
+          </po-input>
+
+        </po-container>
+        <po-container>
+          <div class="po-row">
+            <po-button
+              class="po-md-3"
+              p-label="Voltar"
+              (p-click)="CancelGrava()"
+            >
+            </po-button>
+          </div>
+        </po-container>
+      </form>
+
+    </div>
+  </div>
+
+</po-page-default>
+
