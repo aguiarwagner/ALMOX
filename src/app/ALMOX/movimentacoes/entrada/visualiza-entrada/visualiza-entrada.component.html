@@ -1,9 +1,7 @@
 <po-page-default p-title="Visualização de Entrada">
-
   <div class="po-row">
     <div class="po-md-12">
       <form #formEntrada="ngForm">
-
         <po-container>
           <blockquote id="blockquote">Informações do Cabeçalho</blockquote>
           <po-input
@@ -17,7 +15,6 @@
             p-disabled="true"
             p-placeholder="Insira nome do fornecedor.">
           </po-input>
-
           <po-input
             class="po-md-4"
             [(ngModel)]="numnf"
@@ -29,7 +26,6 @@
             p-disabled="true"
             p-placeholder="Número da NF">
           </po-input>
-
           <po-number class="po-md-2"
             name="serienf"
             [(ngModel)]="serienf"
@@ -40,8 +36,6 @@
             p-placeholder="Série da NF"
             p-required="false">
           </po-number>
-
-
           <po-datepicker
             class="po-md-2"
             name="datent"
@@ -49,9 +43,7 @@
             p-disabled="true"
             p-label="Data da Entrada"
           ></po-datepicker>
-
         </po-container>
-
         <po-container>
           <blockquote id="blockquote">Informações dos Itens</blockquote>
         </po-container>
@@ -61,13 +53,10 @@
             p-hide-select-all="false"
             [p-selectable]="false"
             [p-loading]="isLoading"
-
             [p-columns]="columns"
             [p-items]="itemsFiltered">
           </po-table>
         </po-container>
-
-
       </form>
       <po-container>
         <div class="po-row">
@@ -81,7 +70,4 @@
       </po-container>
     </div>
   </div>
-
-
-
 </po-page-default>

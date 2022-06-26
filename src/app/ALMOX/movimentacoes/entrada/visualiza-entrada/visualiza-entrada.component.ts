@@ -28,7 +28,6 @@ export class VisualizaEntradaComponent implements OnInit {
   items: Array<any>;
   itens_mapa;
 
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -47,8 +46,6 @@ export class VisualizaEntradaComponent implements OnInit {
       { property: 'numnf', label: 'numnf', type: 'number', width: '15%',visible: false},
       { property: 'serienf', label: 'serienf', type: 'number', width: '15%',visible: false}
     ];
-
-
     this.visualEntrada();
   }
 
@@ -62,8 +59,6 @@ export class VisualizaEntradaComponent implements OnInit {
   }
 
   getItens(){
-
-
     this.almoxService.getEntradaId(this.recnoCabec).subscribe(dados => {
       this.itens_mapa = [];
       this.itens_mapa = dados
@@ -77,7 +72,7 @@ export class VisualizaEntradaComponent implements OnInit {
           item: data.item,
           recnoitem: data.recnoitem,
           codprod: data.codprod,
-          valunit: data.valunitf,
+          valunit: data.valunit,
           valtot: data.valtot,
           quant: data.quant,
           descprod: data.descprod,
@@ -95,13 +90,8 @@ export class VisualizaEntradaComponent implements OnInit {
         this.itemsFiltered.push(
           {  item: this.items[index].item += 1,descprod:  this.items[index].descprod, quant: this.items[index].quant, valunit: this.items[index].valunit, valtot: this.items[index].valtot }
         );
-
-
-
-
       }
     });
-
   }
 
 
