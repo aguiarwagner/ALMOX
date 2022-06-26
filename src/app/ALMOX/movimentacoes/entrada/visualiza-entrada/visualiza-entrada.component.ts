@@ -38,10 +38,14 @@ export class VisualizaEntradaComponent implements OnInit {
 
   ngOnInit(): void {
     this.columns = [
-      { property: 'descfornec', label: 'Fornecedor', type: 'string', width: '30%'},
-      { property: 'datent', label: 'Data entrada', type: 'string', width: '20%'},
-      { property: 'numnf', label: 'Numero da NF', type: 'string', width: '15%'},
-      { property: 'serienf', label: 'Serie da NF', type: 'string', width: '10%'}
+      { property: 'item', label: 'Item', type: 'number', width: '5%'},
+      { property: 'descprod', label: 'produto', type: 'string', width: '30%'},
+      { property: 'recnoProd', label: 'recno', type: 'string', width: '30%',visible: false},
+      { property: 'quant', label: 'Quantidade', type: 'number', width: '20%'},
+      { property: 'valunit', label: 'Valor Unitário', type: 'number', width: '20%'},
+      { property: 'valtot', label: 'Total', type: 'number', width: '15%'},
+      { property: 'numnf', label: 'numnf', type: 'number', width: '15%',visible: false},
+      { property: 'serienf', label: 'serienf', type: 'number', width: '15%',visible: false}
     ];
 
 
@@ -50,11 +54,6 @@ export class VisualizaEntradaComponent implements OnInit {
 
   visualEntrada(){
     this.recnoCabec = this.activatedRoute.snapshot.paramMap.get('id');
-    debugger
-    //this.descfornec = this.activatedRoute.snapshot.paramMap.get('descfornec');
-    //this.numnf = this.activatedRoute.snapshot.paramMap.get('numnf');
-    //this.serienf = this.activatedRoute.snapshot.paramMap.get('serienf');
-    //const datent = this.activatedRoute.snapshot.paramMap.get('datent');
     this.getItens();
   }
 
@@ -75,7 +74,13 @@ export class VisualizaEntradaComponent implements OnInit {
           descfornec: data.descfornec,
           serienf: data.serienf,
           datent: data.datent,
-          numnf: data.numnf,
+          item: data.item,
+          recnoitem: data.recnoitem,
+          codprod: data.codprod,
+          valunit: data.valunitf,
+          valtot: data.valtot,
+          quant: data.quant,
+          descprod: data.descprod,
         }
       });
 
@@ -86,13 +91,17 @@ export class VisualizaEntradaComponent implements OnInit {
       this.itemsFiltered = [];
       this.isLoading = false;
       this.SelFornec = [];
-      this.SelFornec.push(
-        { label: this.items[0].descfornec, value: 1 }
+      for (let index = 0; index < this.items.length; index++) {
+        this.itemsFiltered.push(
+          {  item: this.items[index].item += 1,descprod:  this.items[index].descprod, quant: this.items[index].quant, valunit: this.items[index].valunit, valtot: this.items[index].valtot }
         );
 
 
 
+
+      }
     });
+
   }
 
 
