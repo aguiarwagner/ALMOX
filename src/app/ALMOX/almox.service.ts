@@ -65,6 +65,10 @@ constructor(
     return this.http.delete('http://localhost:5000/produtos?codprod='+codprod);
   }
 
+  deleteEntrada(recno: string)  {
+    return this.http.delete('http://localhost:5000/entrada?recno='+recno);
+  }
+
   getIgreja(): Observable<ResponsePageable> {
   return this.http.get<ResponsePageable>('http://localhost:5000/igreja');
   }

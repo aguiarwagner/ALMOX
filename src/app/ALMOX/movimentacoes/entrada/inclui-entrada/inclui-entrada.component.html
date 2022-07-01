@@ -46,7 +46,7 @@
       <po-container>
         <blockquote id="blockquote">Informações dos Itens</blockquote>
         <po-select
-          class="po-md-4"
+          class="po-md-6"
           name="descprod"
           [p-label]='cProduto'
           [(ngModel)]="cProdutoSelecionado"
@@ -90,13 +90,14 @@
           p-placeholder="Valor total"
           p-required="true">
         </po-number>
-        <po-button
-            class="po-md-2"
-            p-icon="po-icon po-icon-plus"
-            name="Adicionar"
-            p-label="Adicionar"
-            (p-click)="Adiciona()">
-          </po-button>
+        <po-button id="btn"
+          class="po-md-12"
+          p-icon="po-icon po-icon-plus"
+          name="Adicionar"
+          p-label="Adicionar"
+          p-type="primary"
+          (p-click)="Adiciona()">
+        </po-button>
       </po-container>
       <po-container>
         <po-table
@@ -105,6 +106,7 @@
           [p-selectable]="false"
           [p-loading]="isLoading"
           [p-actions]="tableActions"
+          p-sort="true"
           [p-columns]="columns"
           [p-items]="itemsFiltered">
         </po-table>
@@ -112,13 +114,17 @@
       <po-container>
         <div class="po-row">
           <po-button
-            class="po-md-3"
+            class="po-md-6"
             p-label="Salvar"
+            p-icon="po-icon po-icon-ok"
+            p-type="primary"
             (p-click)="grava()">
           </po-button>
           <po-button
-            class="po-md-3"
+            class="po-md-6"
             p-label="Cancelar"
+            p-icon="po-icon po-icon-exit"
+            p-type="primary"
             (p-click)="Cancela()">
           </po-button>
         </div>

@@ -11,11 +11,12 @@
   <po-container >
   <po-button
     id="btngerar"
-    class="po-md-4"
+    class="po-md-12"
     (p-click)= "incluir()"
     [p-loading]="loadButton"
-    p-icon="po-icon po-icon-logo-totvs"
+    p-icon="po-icon po-icon-plus"
     [p-label]="labelButton"
+    p-type="primary"
     p-primary="true">
   </po-button>
 </po-container>
@@ -28,6 +29,7 @@
     [p-loading]="isLoading"
     [p-actions]="tableActions"
     [p-columns]="columns"
+    p-sort="true"
     [p-items]="itemsFiltered">
   </po-table>
 

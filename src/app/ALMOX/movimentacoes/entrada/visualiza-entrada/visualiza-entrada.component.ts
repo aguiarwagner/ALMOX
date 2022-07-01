@@ -38,7 +38,7 @@ export class VisualizaEntradaComponent implements OnInit {
   ngOnInit(): void {
     this.columns = [
       { property: 'item', label: 'Item', type: 'number', width: '5%'},
-      { property: 'descprod', label: 'produto', type: 'string', width: '30%'},
+      { property: 'descprod', label: 'Produto', type: 'string', width: '30%'},
       { property: 'recnoProd', label: 'recno', type: 'string', width: '30%',visible: false},
       { property: 'quant', label: 'Quantidade', type: 'number', width: '20%'},
       { property: 'valunit', label: 'Valor Unitário', type: 'number', width: '20%'},
@@ -68,6 +68,7 @@ export class VisualizaEntradaComponent implements OnInit {
           recno: data.recno,
           descfornec: data.descfornec,
           serienf: data.serienf,
+          numnf: data.numnf,
           datent: data.datent,
           item: data.item,
           recnoitem: data.recnoitem,

@@ -1,19 +1,24 @@
-<po-page-default p-title="Visualização de Entrada">
+<po-page-default p-title="Visualização de Nota Fiscal de Entrada">
   <div class="po-row">
     <div class="po-md-12">
       <form #formEntrada="ngForm">
         <po-container>
-          <blockquote id="blockquote">Informações do Cabeçalho</blockquote>
+          <po-container
+            p-no-border="true"
+            p-no-padding="false"
+            p-no-shadow="true">
+            <blockquote id="blockquote">Informações do Cabeçalho</blockquote>
+          </po-container>
           <po-input
-            class="po-md-6"
+            class="po-md-4"
             [(ngModel)]="descfornec"
             name="descFornec"
-            p-label='Insira nome do fornecedor'
+            p-label='Fornecedor'
             p-clean="true"
             p-minlength="1"
             [p-required]="true"
             p-disabled="true"
-            p-placeholder="Insira nome do fornecedor.">
+            p-placeholder="Fornecedor.">
           </po-input>
           <po-input
             class="po-md-4"
@@ -45,15 +50,19 @@
           ></po-datepicker>
         </po-container>
         <po-container>
-          <blockquote id="blockquote">Informações dos Itens</blockquote>
-        </po-container>
-        <po-container>
+          <po-container
+            p-no-border="true"
+            p-no-padding="false"
+            p-no-shadow="true">
+            <blockquote id="blockquote">Informações dos Itens</blockquote>
+          </po-container>
           <po-table
             p-selectable="true"
             p-hide-select-all="false"
             [p-selectable]="false"
             [p-loading]="isLoading"
             [p-columns]="columns"
+            p-sort="true"
             [p-items]="itemsFiltered">
           </po-table>
         </po-container>
@@ -61,10 +70,12 @@
       <po-container>
         <div class="po-row">
           <po-button
-            class="po-md-3"
+            class="po-md-12"
             p-label="Voltar"
+            p-icon="po-icon po-icon-exit"
+            p-type="primary"
             (p-click)="Cancel()"
-          >
+            p-primary="true">
           </po-button>
         </div>
       </po-container>

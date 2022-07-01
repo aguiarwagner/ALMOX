@@ -38,7 +38,7 @@ export class EntradaComponent implements OnInit {
     this.columns = [
 
       { property: 'descfornec', label: 'Fornecedor', type: 'string', width: '30%'},
-      { property: 'datent', label: 'Data entrada', type: 'string', width: '20%'},
+      { property: 'datent', label: 'Data entrada', type: 'date', width: '20%'},
       { property: 'numnf', label: 'Numero da NF', type: 'string', width: '15%'},
       { property: 'serienf', label: 'Serie da NF', type: 'string', width: '10%'}
 
@@ -88,6 +88,15 @@ export class EntradaComponent implements OnInit {
       }
     }
     this.itemsFiltered = [...this.items];
+    this.itemsFiltered.sort(function (a, b) { // Ordena array pelo Total de Tickets
+      if (a.datent > b.datent) {
+        return -1;
+      }
+      if (a.datent < b.datents) {
+        return 1;
+      }
+        return 0;
+      });
     this.isLoading = false
 
     });

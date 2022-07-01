@@ -1,13 +1,87 @@
-<po-page-default p-title="Exclusão de Entrada">
-
-  <po-container>
-    <div class="po-row">
-      <po-button
-        class="po-md-3"
-        p-label="Voltar"
-        (p-click)="Cancel()"
-      >
-      </po-button>
+<po-page-default p-title="Visualização de Nota Fiscal de Entrada">
+  <div class="po-row">
+    <div class="po-md-12">
+      <form #formEntrada="ngForm">
+        <po-container>
+          <po-container
+            p-no-border="true"
+            p-no-padding="false"
+            p-no-shadow="true">
+            <blockquote id="blockquote">Informações do Cabeçalho</blockquote>
+          </po-container>
+          <po-input
+            class="po-md-4"
+            [(ngModel)]="descfornec"
+            name="descFornec"
+            p-label='Fornecedor'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="true"
+            p-disabled="true"
+            p-placeholder="Fornecedor.">
+          </po-input>
+          <po-input
+            class="po-md-4"
+            [(ngModel)]="numnf"
+            name="numnf"
+            p-label='Nota Fiscal'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="true"
+            p-disabled="true"
+            p-placeholder="Número da NF">
+          </po-input>
+          <po-number class="po-md-2"
+            name="serienf"
+            [(ngModel)]="serienf"
+            p-auto-focus="boolean"
+            p-clean="true"
+            p-label="Série"
+            p-disabled="true"
+            p-placeholder="Série da NF"
+            p-required="false">
+          </po-number>
+          <po-datepicker
+            class="po-md-2"
+            name="datent"
+            [(ngModel)]="datent"
+            p-disabled="true"
+            p-label="Data da Entrada"
+          ></po-datepicker>
+        </po-container>
+        <po-container>
+          <po-container
+            p-no-border="true"
+            p-no-padding="false"
+            p-no-shadow="true">
+            <blockquote id="blockquote">Informações dos Itens</blockquote>
+          </po-container>
+          <po-table
+            p-selectable="true"
+            p-hide-select-all="false"
+            [p-selectable]="false"
+            [p-loading]="isLoading"
+            [p-columns]="columns"
+            [p-items]="itemsFiltered">
+          </po-table>
+        </po-container>
+      </form>
+      <po-container>
+        <po-button
+          class="po-md-6"
+          p-icon="po-icon po-icon-exit"
+          p-label="Cancelar"
+          p-type="primary"
+          (p-click)="Cancel()">
+        </po-button>
+        <po-button
+          class="po-md-6"
+          p-icon="po-icon po-icon-delete"
+          p-label="Excluir"
+          p-type="primary"
+          (p-click)="confirmaExclusao()">
+        </po-button>
+      </po-container>
     </div>
-  </po-container>
+  </div>
 </po-page-default>
