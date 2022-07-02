@@ -1,16 +1,17 @@
 <po-page-default p-title="Inclusão de Igreja">
 
-  <div class="po-row">
-    <div class="po-lg-10 po-offset-lg-1 po-xl-10 po-offset-xl-1">
+  <div class="po-md-12">
+
       <form #formProduto="ngForm">
         <po-container>
           <po-input
             class="po-md-8"
             [(ngModel)]="mapa.descigreja"
             name="descigreja"
-            p-label='Insira a Igreja'
+            p-label='Igreja'
             p-clean="true"
             p-minlength="1"
+            p-disabled="true"
             [p-required]="true"
             p-placeholder="Descrição da Igreja.">
           </po-input>
@@ -21,8 +22,9 @@
             p-auto-focus="boolean"
             p-clean="true"
             p-label="Código do Relatório"
-            p-optional="true"
+            p-optional="false"
             p-mask="99-9999"
+            p-disabled="true"
             p-placeholder="Código do Relatório"
             p-required="false">
           </po-input>
@@ -33,7 +35,8 @@
             p-auto-focus="boolean"
             p-clean="true"
             p-label="Atalho"
-            p-optional="true"
+            p-disabled="true"
+            p-optional="false"
             p-placeholder="Atalho"
             p-required="false">
           </po-number>
@@ -45,6 +48,7 @@
             p-label='Endereço'
             p-clean="true"
             p-minlength="1"
+            p-disabled="true"
             [p-required]="true"
             p-placeholder="Endereço">
           </po-input>
@@ -56,6 +60,7 @@
             p-label='Telefone'
             p-clean="true"
             p-minlength="1"
+            p-disabled="true"
             [p-required]="false"
             p-mask="(99)99999-9999"
             p-placeholder="Telefone">
@@ -68,6 +73,7 @@
             p-label='CEP'
             p-clean="true"
             p-minlength="1"
+            p-disabled="true"
             [p-required]="true"
             p-mask="99999-999"
             p-placeholder="CEP.">
@@ -94,7 +100,7 @@
         </po-container>
       </form>
 
-    </div>
+
   </div>
 
 </po-page-default>

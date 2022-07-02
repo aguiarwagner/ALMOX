@@ -1,14 +1,13 @@
-<po-page-default p-title="Inclusão de Fornecedor">
+<po-page-default p-title="Alteração de Fornecedor">
 
-  <div class="po-row">
-    <div class="po-lg-10 po-offset-lg-1 po-xl-10 po-offset-xl-1">
+  <div class="po-md-12">
+    <div class="po-md-12">
       <form #formProduto="ngForm">
         <po-container>
-
           <po-input
             class="po-md-6"
             [(ngModel)]="mapa.nome"
-            name="cep"
+            name="mapa.nome"
             p-label='Insira nome do fornecedor'
             p-clean="true"
             p-minlength="1"

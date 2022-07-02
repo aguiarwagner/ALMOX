@@ -1,7 +1,7 @@
 <po-page-default p-title="Alteração de Igreja">
 
-  <div class="po-row">
-    <div class="po-lg-10 po-offset-lg-1 po-xl-10 po-offset-xl-1">
+  <div class="po-md-12">
+
       <form #formProduto="ngForm">
         <po-container>
           <po-input
@@ -21,7 +21,7 @@
             p-auto-focus="boolean"
             p-clean="true"
             p-label="Código do Relatório"
-            p-optional="true"
+            p-optional="false"
             p-mask="99-9999"
             p-placeholder="Insira o código do Relatório"
             p-required="false">
@@ -33,7 +33,7 @@
             p-auto-focus="boolean"
             p-clean="true"
             p-label="Atalho"
-            p-optional="true"
+            p-optional="false"
             p-placeholder="Insira o Atalho"
             p-required="false">
           </po-number>
@@ -91,7 +91,7 @@
             </po-button>
         </po-container>
       </form>
-    </div>
+
   </div>
 </po-page-default>
 

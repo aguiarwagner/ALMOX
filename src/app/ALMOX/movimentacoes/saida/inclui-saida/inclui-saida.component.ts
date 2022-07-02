@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PoSelectOption } from '@po-ui/ng-components';
 
 @Component({
   selector: 'app-inclui-saida',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inclui-saida.component.scss']
 })
 export class IncluiSaidaComponent implements OnInit {
-
+  recnoIgreja: number;
+  selIgreja: Array<PoSelectOption> = [];
   constructor() { }
 
   ngOnInit(): void {

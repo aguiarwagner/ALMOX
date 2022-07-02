@@ -59,7 +59,7 @@ export class AlterarFornecedorComponent implements OnInit {
         }else{
           this.mapa.tipo = 2;
         }
-        //this.mapa.tipo = this.items[i].tipo;
+        this.mapa.nome = this.items[i].nome;
         this.mapa.tel = this.items[i].tel;
         this.mapa.endereco = this.items[i].endereco;
         this.mapa.ultcompra = this.items[i].ultcompra;
@@ -87,7 +87,7 @@ export class AlterarFornecedorComponent implements OnInit {
       this.poNotification.success("Preencha o nome do fornecedor!");
       return;
     }
-    debugger
+
     if (this.mapa.ultcompra == undefined){
       this.mapa.ultcompra = '  /  /    '
     }

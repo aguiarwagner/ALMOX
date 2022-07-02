@@ -1,33 +1,19 @@
-<po-page-default p-title="Inclusão de Fornecedor">
+<po-page-default p-title="Exclusão de Fornecedor">
 
-  <div class="po-row">
-    <div class="po-lg-10 po-offset-lg-1 po-xl-10 po-offset-xl-1">
+  <div class="po-md-12">
+
       <form #formProduto="ngForm">
         <po-container>
-
           <po-input
             class="po-md-6"
             [(ngModel)]="mapa.nome"
-            name="cep"
-            p-label='Insira nome do fornecedor'
+            name="mapa.nome"
+            p-label='Fornecedor'
             p-clean="true"
             p-minlength="1"
             [p-required]="true"
             p-disabled="true"
             p-placeholder="Insira nome do fornecedor.">
-          </po-input>
-
-          <po-input class="po-md-3"
-            name="cnpj"
-            [(ngModel)]="mapa.cnpj"
-            p-auto-focus="boolean"
-            p-clean="true"
-            p-label="CNPJ"
-            p-optional="false"
-            p-placeholder="Insira o CNPJ"
-            p-required="true"
-            p-disabled="true"
-            p-mask="99.999.999/999-99">
           </po-input>
 
           <po-input
@@ -41,11 +27,24 @@
             p-placeholder="Insira o tipo.">
           </po-input>
 
+          <po-input class="po-md-4  "
+            name="cnpj"
+            [(ngModel)]="mapa.cnpj"
+            p-auto-focus="boolean"
+            p-clean="true"
+            p-label="CNPJ"
+            p-optional="false"
+            p-placeholder="CNPJ"
+            p-required="true"
+            p-disabled="true"
+            p-mask="99.999.999/999-99">
+          </po-input>
+
           <po-input
             class="po-md-4"
             [(ngModel)]="mapa.tel"
             name="tel"
-            p-label='Insira o Telefone'
+            p-label='Telefone'
             p-clean="true"
             p-minlength="1"
             p-disabled="true"
@@ -58,7 +57,7 @@
             class="po-md-8"
             [(ngModel)]="mapa.endereco"
             name="endereco"
-            p-label='Insira o endereco'
+            p-label='Endereço'
             p-clean="true"
             p-minlength="1"
             [p-required]="false"
@@ -70,7 +69,7 @@
             class="po-md-4"
             [(ngModel)]="mapa.ultcompra"
             name="ultcompra"
-            p-label='ultcompra'
+            p-label='Última Compra'
             p-clean="true"
             p-minlength="1"
             [p-required]="false"
@@ -99,7 +98,7 @@
         </po-container>
       </form>
 
-    </div>
+
   </div>
 
 </po-page-default>

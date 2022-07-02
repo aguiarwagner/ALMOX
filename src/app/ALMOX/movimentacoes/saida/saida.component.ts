@@ -101,8 +101,8 @@ export class SaidaComponent implements OnInit {
   excluirSaida(mapa){
     this.router.navigate(['saida/excluisaida', mapa.recno]);
   }
-  incluiSaida(mapa){
-    this.router.navigate(['saida/excluisaida', mapa.recno]);
+  incluiSaida(){
+    this.router.navigate(['saida/incluisaida']);
   }
   //Filtro
   public readonly filterSettings: PoPageFilter = {
@@ -159,7 +159,7 @@ export class SaidaComponent implements OnInit {
   }
 
   incluir(){
-    this.router.navigate(['saida/incluir']);
+    this.router.navigate(['saida/incluisaida']);
 
 }
 
