@@ -92,17 +92,18 @@
         <po-container>
           <div class="po-row">
             <po-button
-              class="po-md-3"
+              class="po-md-6"
               p-label="Salvar"
-
-              (p-click)="gravaFornecedor()"
-            >
+              p-icon="po-icon po-icon-ok"
+              p-type="primary"
+              (p-click)="gravaFornecedor()">
             </po-button>
             <po-button
-              class="po-md-3"
+              class="po-md-6"
               p-label="Cancelar"
-              (p-click)="CancelGrava()"
-            >
+              p-icon="po-icon po-icon-exit"
+              p-type="primary"
+              (p-click)="CancelGrava()">
             </po-button>
           </div>
         </po-container>

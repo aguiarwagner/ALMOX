@@ -11,10 +11,12 @@
     <po-container >
     <po-button
       id="btngerar"
-      class="po-md-4"
+      class="po-md-12"
+      p-type="primary"
+      p-icon="po-icon po-icon-plus"
+      p-small="true"
       (p-click)= "inCluiProd()"
       [p-loading]="loadButton"
-      p-icon="po-icon po-icon-logo-totvs"
       [p-label]="labelButton"
       p-primary="true">
     </po-button>
@@ -22,13 +24,13 @@
 
   <po-container>
     <po-table
-
       p-selectable="true"
       p-hide-select-all="false"
       [p-selectable]="false"
       [p-loading]="isLoading"
       [p-actions]="tableActions"
       [p-columns]="columns"
+      p-sort="true"
       [p-items]="itemsFiltered">
     </po-table>
 

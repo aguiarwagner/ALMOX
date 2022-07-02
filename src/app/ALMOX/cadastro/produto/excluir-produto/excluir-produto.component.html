@@ -66,17 +66,19 @@
         <po-container>
           <div class="po-row">
             <po-button
-              class="po-md-3"
-              p-label="Confirmar Exclusão"
-
-              (p-click)="Exclui()"
-            >
+              class="po-md-6"
+              p-label="Excluir"
+              p-type="primary"
+              p-icon="po-icon po-icon-delete"
+              (p-click)="Exclui()">
             </po-button>
             <po-button
-              class="po-md-3"
-              p-label="Voltar"
-              (p-click)="CancelProd()"
-            >
+              class="po-md-6"
+              p-label="Cancelar"
+              p-type="primary"
+              p-small="true"
+              p-icon="po-icon po-icon-exit"
+              (p-click)="CancelProd()">
             </po-button>
           </div>
         </po-container>

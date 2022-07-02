@@ -16,7 +16,7 @@ export class AlterarIgrejaComponent implements OnInit {
   breadcrumb: PoBreadcrumb;
   disclaimerGroup: PoDisclaimerGroup;
   loadButton = false;
-  labelButton = "Cadastrar de Igrejas";
+  labelButton = "Cadastrar Igrejas";
   isLoading: boolean = true;
   itemsFiltered: Array<any>;
   itens_mapa;

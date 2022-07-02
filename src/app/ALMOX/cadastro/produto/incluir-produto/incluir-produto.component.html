@@ -62,15 +62,19 @@
         <po-container>
           <div class="po-row">
             <po-button
-              class="po-md-3"
+              class="po-md-6"
               p-label="Salvar"
-
-              (p-click)="gravaProd()"
-            >
+              p-type="primary"
+              p-icon="po-icon po-icon-plus"
+              p-small="true"
+              (p-click)="gravaProd()">
             </po-button>
             <po-button
-              class="po-md-3"
+              class="po-md-6"
               p-label="Cancelar"
+              p-type="primary"
+              p-icon="po-icon po-icon-exit"
+              p-small="true"
               (p-click)="CancelProd()"
             >
             </po-button>

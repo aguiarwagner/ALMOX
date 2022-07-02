@@ -82,17 +82,18 @@
         <po-container>
           <div class="po-row">
             <po-button
-              class="po-md-3"
+              class="po-md-6"
               p-label="Excluir"
-
-              (p-click)="excluiFornecedor()"
-            >
+              p-icon="po-icon po-icon-delete"
+              p-type="primary"
+              (p-click)="excluiFornecedor()">
             </po-button>
             <po-button
-              class="po-md-3"
-              p-label="Voltar"
-              (p-click)="CancelGrava()"
-            >
+              class="po-md-6"
+              p-label="Cancelar"
+              p-icon="po-icon po-icon-exit"
+              p-type="primary"
+              (p-click)="CancelGrava()">
             </po-button>
           </div>
         </po-container>

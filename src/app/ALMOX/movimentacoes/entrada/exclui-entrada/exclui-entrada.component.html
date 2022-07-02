@@ -1,4 +1,4 @@
-<po-page-default p-title="Visualização de Nota Fiscal de Entrada">
+<po-page-default p-title="Exclusão de Nota Fiscal de Entrada">
   <div class="po-row">
     <div class="po-md-12">
       <form #formEntrada="ngForm">
@@ -69,17 +69,17 @@
       <po-container>
         <po-button
           class="po-md-6"
-          p-icon="po-icon po-icon-exit"
-          p-label="Cancelar"
-          p-type="primary"
-          (p-click)="Cancel()">
-        </po-button>
-        <po-button
-          class="po-md-6"
           p-icon="po-icon po-icon-delete"
           p-label="Excluir"
           p-type="primary"
           (p-click)="confirmaExclusao()">
+        </po-button>
+        <po-button
+          class="po-md-6"
+          p-icon="po-icon po-icon-exit"
+          p-label="Cancelar"
+          p-type="primary"
+          (p-click)="Cancel()">
         </po-button>
       </po-container>
     </div>
