@@ -27,7 +27,7 @@ export class SaidaComponent implements OnInit {
   datent;
   numnf;
   serienf;
-
+  solicitante: string;
   itens_mapa;
   items: Array<any>;
 
@@ -43,13 +43,12 @@ export class SaidaComponent implements OnInit {
     this.columns = [
 
       { property: 'descigreja', label: 'Igreja', type: 'string', width: '30%'},
-      { property: 'datsaida', label: 'Data da saída', type: 'string', width: '20%'},
-      { property: 'codrelat', label: 'Código do Relatório', type: 'string', width: '15%'}
-      //{ property: 'serienf', label: 'Serie da NF', type: 'string', width: '10%'}
+      { property: 'datasaida', label: 'Data da saída', type: 'date', width: '20%'},
+      { property: 'codrelat', label: 'Código do Relatório', type: 'string', width: '15%'},
+      { property: 'solicitante', label: 'Solicitante', type: 'string', width: '10%'}
 
     ];
     this.tableActions = [
-      { action: this.incluiSaida.bind(this), label: "Incluir" },
       { action: this.visualSaida.bind(this), label: "Visualizar" },
       { action: this.alteraSaida.bind(this), label: 'Alterar' },
       { action: this.excluirSaida.bind(this), label: 'Excluir' }
@@ -73,16 +72,19 @@ export class SaidaComponent implements OnInit {
         return {
           recno: data.recno,
           descigreja: data.descigreja,
-          datsaida: data.datsaid,
+          datasaida: data.datasaida,
           codrelat: data.codrelat,
+          solicitante: data.solicitante,
         }
     });
+
     if (this.items.length > 0) {
       for(var i = 0; i < this.items.length; i++){
         this.descigreja = this.items[i].descigreja;
         this.recno     = this.items[i].recno;
         this.codrelat = this.items[i].codrelat;
-        this.datsaida = this.items[i].datsaida;
+        this.datsaida = this.items[i].datasaida;
+        this.solicitante = this.items[i].solicitante;
         //this.numnf = this.items[i].numnf;
       }
     }
@@ -92,7 +94,6 @@ export class SaidaComponent implements OnInit {
     });
   }
   visualSaida(mapa){
-    debugger
     this.router.navigate(['saida/visualsaida', mapa.recno]);
   }
   alteraSaida(mapa){

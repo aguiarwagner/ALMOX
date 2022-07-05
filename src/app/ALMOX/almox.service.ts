@@ -81,6 +81,10 @@ constructor(
     return this.http.post('http://localhost:5000/igreja', mapa);
   }
 
+  postSaida(mapa)  {
+    return this.http.post('http://localhost:5000/saida', mapa);
+  }
+
   putIgreja(mapa: Mapa)  {
     return this.http.put('http://localhost:5000/igreja', mapa);
   }

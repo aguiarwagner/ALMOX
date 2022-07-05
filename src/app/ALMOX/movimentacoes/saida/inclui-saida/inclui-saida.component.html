@@ -18,42 +18,44 @@
 
         <po-input
           class="po-md-4"
-          [(ngModel)]="numnf"
-          name="numnf"
-          p-label='Nota Fiscal'
+          [(ngModel)]="Solicitante"
+          name="Solicitante"
+          p-label='Solicitante'
           p-clean="true"
           p-minlength="1"
           [p-required]="true"
-          p-placeholder="Número da NF">
+          p-placeholder="Informe o solicitante">
         </po-input>
-        <po-number class="po-md-2"
-          name="serienf"
-          [(ngModel)]="serienf"
+        <po-input class="po-md-2"
+          name="cpfSolicitante"
+          [(ngModel)]="cpfSolicitante"
           p-auto-focus="boolean"
           p-clean="true"
-          p-label="Série"
-          p-optional="true"
-          p-placeholder="Série da NF"
+          p-label="CPF do Solicitante"
+          p-optional="false"
+          p-placeholder="Informe o CPF do solicitante"
+          p-mask="999.999.999-99"
           p-required="false">
-        </po-number>
+        </po-input>
         <po-datepicker
           class="po-md-2"
-          name="datent"
-          [(ngModel)]="datent"
-          p-label="Data da Entrada"
-        ></po-datepicker>
+          name="datasaida"
+          [(ngModel)]="datasaida"
+          p-label="Data da Saída">
+        </po-datepicker>
 
       </po-container>
-      <!--
+
       <po-container>
         <blockquote id="blockquote">Informações dos Itens</blockquote>
         <po-select
           class="po-md-6"
           name="descprod"
-          [p-label]='cProduto'
+          p-label='Produto'
           [(ngModel)]="cProdutoSelecionado"
           p-clean="true"
           p-minlength="1"
+          (p-change)="alteraProdutoSel($event)"
           [p-options]="SelProduto"
           [p-required]="true"
           p-placeholder="Selecione o Produto">
@@ -66,7 +68,7 @@
           p-label='Quantidade'
           p-clean="true"
           p-minlength="1"
-          [p-required]="true"
+          [p-required]="false"
           p-placeholder="Digite a quantidade">
         </po-number>
         <po-number class="po-md-2"
@@ -110,7 +112,7 @@
           [p-actions]="tableActions"
           p-sort="true"
           [p-columns]="columns"
-          [p-items]="itemsFiltered">
+          [p-items]="itemsTable">
         </po-table>
       </po-container>
       <po-container>
@@ -120,7 +122,7 @@
             p-label="Salvar"
             p-icon="po-icon po-icon-ok"
             p-type="primary"
-            (p-click)="grava()">
+            (p-click)="validaDados()">
           </po-button>
           <po-button
             class="po-md-6"
@@ -132,7 +134,7 @@
         </div>
       </po-container>
     </form>
-  </div>
+
 
   <po-modal #alteraItemModal p-click-out="true"
     p-title="Alteração do Item" p-size="auto"
@@ -188,8 +190,8 @@
       </po-number>
     </po-widget>
   </po-modal>
--->
-</form>
+
+
 </div>
 
 </po-page-default>
