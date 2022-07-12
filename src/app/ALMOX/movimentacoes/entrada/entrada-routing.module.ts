@@ -14,8 +14,6 @@ const routes: Routes = [
   { path: 'visualentrada/:id', component: VisualizaEntradaComponent },
   { path: 'excluientrada/:id', component: ExcluiEntradaComponent },
   { path: 'alteraentrada/:id', component: AlteraEntradaComponent },
-  //{ path: 'visualproduto/:id', component: VisualProdutoComponent},
-  //{ path: 'excluirproduto/:id', component: ExcluirProdutoComponent}
 ];
 
 @NgModule({

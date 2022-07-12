@@ -1,13 +1,84 @@
 <po-page-default p-title="Visualização de Saída">
 
-  <po-container>
-    <div class="po-row">
+
+    <div class="po-row" >
+      <div class="po-md-12">
+
+        <po-container>
+          <po-container
+            p-no-border="true"
+            p-no-padding="false"
+            p-no-shadow="true">
+            <blockquote id="blockquote">Informações do Cabeçalho</blockquote>
+          </po-container>
+          <po-input
+            class="po-md-4"
+            [(ngModel)]="descigreja"
+            name="descigreja"
+            p-label='Igreja'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="true"
+            p-disabled="true"
+            p-placeholder="igreja.">
+          </po-input>
+          <po-input
+            class="po-md-4"
+            [(ngModel)]="solicitante"
+            name="solicitante"
+            p-label='Solicitante'
+            p-clean="true"
+            p-minlength="1"
+            [p-required]="true"
+            p-disabled="true"
+            p-placeholder="Solicitante">
+          </po-input>
+          <po-input class="po-md-2"
+            name="cpfsolicitante"
+            [(ngModel)]="cpfsolicitante"
+            p-auto-focus="boolean"
+            p-clean="true"
+            p-label="CPF Solicitante"
+            p-disabled="true"
+            p-placeholder="CPF Solicitante"
+            p-required="false">
+          </po-input>
+          <po-datepicker
+            class="po-md-2"
+            name="datasaida"
+            [(ngModel)]="datasaida"
+            p-disabled="true"
+            p-label="Data da Saida"
+          ></po-datepicker>
+        </po-container>
+        <po-container>
+          <po-container
+            p-no-border="true"
+            p-no-padding="false"
+            p-no-shadow="true">
+            <blockquote id="blockquote">Informações dos Itens</blockquote>
+          </po-container>
+          <po-table
+            p-selectable="true"
+            p-hide-select-all="false"
+            [p-selectable]="false"
+            [p-loading]="isLoading"
+            [p-columns]="columns"
+            p-sort="true"
+            [p-items]="itemsFiltered">
+          </po-table>
+
+
+
       <po-button
-        class="po-md-3"
+        class="po-md-12"
         p-label="Voltar"
-        (p-click)="Cancel()"
-      >
+        p-icon="po-icon po-icon-exit"
+        p-type="primary"
+        (p-click)="Cancel()">
       </po-button>
+    </po-container>
     </div>
-  </po-container>
+    </div>
+
 </po-page-default>

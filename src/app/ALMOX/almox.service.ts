@@ -49,6 +49,10 @@ constructor(
     return this.http.get<ResponsePageable>('http://localhost:5000/entrada?recno='+recno);
   }
 
+  getSaida(recno: string): Observable<ResponsePageable> {
+    return this.http.get<ResponsePageable>('http://localhost:5000/saida?recno='+recno);
+  }
+
   getEntradaId(recno: string): Observable<ResponsePageable> {
     return this.http.get<ResponsePageable>('http://localhost:5000/entrada?recno='+recno);
   }

@@ -12,9 +12,9 @@ import { VisualizaSaidaComponent } from './visualiza-saida/visualiza-saida.compo
 const routes: Routes = [
   { path: '', component: SaidaComponent },
   { path: 'incluisaida', component: IncluiSaidaComponent },
-  { path: 'excluisaida', component: ExcluiSaidaComponent },
-  { path: 'alterasaida', component: AlteraSaidaComponent },
-  { path: 'visualsaida', component: VisualizaSaidaComponent },
+  { path: 'excluisaida/:id', component: ExcluiSaidaComponent },
+  { path: 'alterasaida/:id', component: AlteraSaidaComponent },
+  { path: 'visualsaida/:id', component: VisualizaSaidaComponent },
 ];
 
 @NgModule({
