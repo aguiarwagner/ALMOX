@@ -1,1 +1,197 @@
-<p>altera-saida works!</p>
+<po-page-default p-title="Alteração de Saida de Produtos">
+  <div class="po-md-12">
+    <form #formEntrada="ngForm">
+
+      <po-container>
+        <blockquote id="blockquote">Informações do Cabeçalho</blockquote>
+        <po-select
+          class="po-md-4"
+          [(ngModel)]="recnoIgreja"
+          name="recnoIgreja"
+          p-label='Igreja'
+          p-clean="true"
+          p-minlength="1"
+          [p-options]="selIgreja"
+          p-required="true"
+          p-placeholder="Selecione a Igreja">
+        </po-select>
+
+        <po-input
+          class="po-md-4"
+          [(ngModel)]="Solicitante"
+          name="Solicitante"
+          p-label='Solicitante'
+          p-clean="true"
+          p-minlength="1"
+          [p-required]="true"
+          p-placeholder="Informe o solicitante">
+        </po-input>
+        <po-input class="po-md-2"
+          name="cpfSolicitante"
+          [(ngModel)]="cpfSolicitante"
+          p-auto-focus="boolean"
+          p-clean="true"
+          p-label="CPF do Solicitante"
+          p-optional="false"
+          p-placeholder="Informe o CPF do solicitante"
+          p-mask="999.999.999-99"
+          p-required="false">
+        </po-input>
+        <po-datepicker
+          class="po-md-2"
+          name="dataSaida"
+          [(ngModel)]="dataSaida"
+          p-label="Data da Saída">
+        </po-datepicker>
+
+      </po-container>
+
+      <po-container>
+        <blockquote id="blockquote">Informações dos Itens</blockquote>
+        <po-select
+          class="po-md-6"
+          name="descricaoProduto"
+          p-label='Produto'
+          [(ngModel)]="cProdutoSelecionado"
+          p-clean="true"
+          p-minlength="1"
+          (p-change)="alteraProdutoSel($event)"
+          [p-options]="SelProduto"
+          [p-required]="true"
+          p-placeholder="Selecione o Produto">
+        </po-select>
+        <po-number
+          class="po-md-2"
+          (p-change)="somaValor($event,1)"
+          [(ngModel)]="quantidade"
+          name="quantidade"
+          p-label='Quantidade'
+          p-clean="true"
+          p-minlength="1"
+          [p-required]="false"
+          p-placeholder="Digite a quantidade">
+        </po-number>
+        <po-number class="po-md-2"
+          name="valorUnitario"
+          [(ngModel)]="valorUnitario"
+          (p-change)="somaValor($event,2)"
+          p-auto-focus="boolean"
+          p-clean="true"
+          p-label="Valor Unitário"
+          p-optional="true"
+          p-placeholder="Valor unitário"
+          p-required="true">
+        </po-number>
+        <po-number class="po-md-2"
+          name="valorTotal"
+          [(ngModel)]="valorTotal"
+          p-auto-focus="boolean"
+          p-clean="false"
+          p-disabled="true"
+          p-enable="false"
+          p-label="Valor Total"
+          p-optional="true"
+          p-placeholder="Valor total"
+          p-required="true">
+        </po-number>
+        <po-button id="btn"
+          class="po-md-12"
+          p-icon="po-icon po-icon-plus"
+          name="Adicionar"
+          p-label="Adicionar"
+          p-type="primary"
+          (p-click)="Adiciona()">
+        </po-button>
+      </po-container>
+      <po-container>
+        <po-table
+          p-selectable="true"
+          p-hide-select-all="false"
+          [p-selectable]="false"
+          [p-loading]="isLoading"
+          [p-actions]="tableActions"
+          p-sort="true"
+          [p-columns]="columns"
+          [p-items]="itemsTable">
+        </po-table>
+      </po-container>
+      <po-container>
+        <div class="po-row">
+          <po-button
+            class="po-md-6"
+            p-label="Salvar"
+            p-icon="po-icon po-icon-ok"
+            p-type="primary"
+            (p-click)="validaDados()">
+          </po-button>
+          <po-button
+            class="po-md-6"
+            p-label="Cancelar"
+            p-icon="po-icon po-icon-exit"
+            p-type="primary"
+            (p-click)="Cancela()">
+          </po-button>
+        </div>
+      </po-container>
+    </form>
+
+
+  <po-modal #alteraItemModal p-click-out="true"
+    p-title="Alteração do Item" p-size="auto"
+    [p-primary-action]="ActionAlteracao"
+    [p-secondary-action]="ActionExclusao"
+    >
+
+    <po-widget class="po-font-text-large-bold po-text-left po-xl-12 po-lg-12 po-md-12 po-sm-12">
+      <po-select
+        class="po-md-6"
+        name="descprodAlteracao"
+        p-label='Produto'
+        [(ngModel)]="cProdutoAlterado"
+        p-clean="true"
+        p-minlength="1"
+        [p-options]="SelProduto"
+        [p-required]="true"
+        p-placeholder="Selecione o Produto">
+      </po-select>
+      <po-number
+        class="po-md-2"
+        (p-change)="somaValorAlteracao($event,1)"
+        [(ngModel)]="quantAltera"
+        name="quantAltera"
+        p-label='Quantidade'
+        p-clean="true"
+        p-minlength="1"
+        [p-required]="true"
+        p-placeholder="Digite a quantidade">
+      </po-number>
+      <po-number class="po-md-2"
+        name="valunitAltera"
+        [(ngModel)]="valunitAltera"
+        (p-change)="somaValorAlteracao($event,2)"
+        p-auto-focus="boolean"
+        p-clean="true"
+        p-label="Valor Unitário"
+        p-optional="true"
+        p-placeholder="Valor unitário"
+        p-required="true">
+      </po-number>
+      <po-number class="po-md-2"
+        name="valtotAltera"
+        [(ngModel)]="valtotAltera"
+        p-auto-focus="boolean"
+        p-clean="false"
+        p-disabled="true"
+        p-enable="false"
+        p-label="Valor Total"
+        p-optional="true"
+        p-placeholder="Valor total"
+        p-required="true">
+      </po-number>
+    </po-widget>
+  </po-modal>
+
+
+</div>
+
+</po-page-default>

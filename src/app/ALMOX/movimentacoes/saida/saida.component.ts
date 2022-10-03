@@ -20,11 +20,11 @@ export class SaidaComponent implements OnInit {
   private disclaimers: Array<PoDisclaimer> = [];
   disclaimerGroup: PoDisclaimerGroup;
   breadcrumb: PoBreadcrumb;
-  codrelat;
-  descigreja;
-  datsaida;
+  codigoRelatorio;
+  descricaoIgreja;
+  dataSaida;
   recno;
-  datent;
+  dataEntrada;
   numnf;
   serienf;
   solicitante: string;
@@ -42,9 +42,9 @@ export class SaidaComponent implements OnInit {
     this.isLoading = false;
     this.columns = [
 
-      { property: 'descigreja', label: 'Igreja', type: 'string', width: '30%'},
-      { property: 'datasaida', label: 'Data da saída', type: 'date', width: '20%'},
-      { property: 'codrelat', label: 'Código do Relatório', type: 'string', width: '15%'},
+      { property: 'descricaoIgreja', label: 'Igreja', type: 'string', width: '30%'},
+      { property: 'dataSaida', label: 'Data da saída', type: 'date', width: '20%'},
+      { property: 'codigoRelatorio', label: 'Código do Relatório', type: 'string', width: '15%'},
       { property: 'solicitante', label: 'Solicitante', type: 'string', width: '10%'}
 
     ];
@@ -71,19 +71,30 @@ export class SaidaComponent implements OnInit {
      .map( data => {
         return {
           recno: data.recno,
-          descigreja: data.descigreja,
-          datasaida: data.datasaida,
-          codrelat: data.codrelat,
+          descricaoIgreja: data.descricaoIgreja,
+          dataSaida: data.dataSaida,
+          codigoRelatorio: data.codigoRelatorio,
           solicitante: data.solicitante,
         }
     });
 
+    //ordeno por data de saída
+    this.items.sort(function (a, b) {
+      if (a.dataSaida > b.dataSaida) {
+        return -1;
+      }
+      if (a.dataSaida < b.dataSaida) {
+        return 1;
+      }
+        return 0;
+      });
+
     if (this.items.length > 0) {
       for(var i = 0; i < this.items.length; i++){
-        this.descigreja = this.items[i].descigreja;
+        this.descricaoIgreja = this.items[i].descricaoIgreja;
         this.recno     = this.items[i].recno;
-        this.codrelat = this.items[i].codrelat;
-        this.datsaida = this.items[i].datasaida;
+        this.codigoRelatorio = this.items[i].codigoRelatorio;
+        this.dataSaida = this.items[i].dataSaida;
         this.solicitante = this.items[i].solicitante;
         //this.numnf = this.items[i].numnf;
       }

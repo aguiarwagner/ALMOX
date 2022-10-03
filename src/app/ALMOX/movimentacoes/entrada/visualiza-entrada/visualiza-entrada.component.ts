@@ -17,9 +17,9 @@ export class VisualizaEntradaComponent implements OnInit {
   SelProduto: Array<PoSelectOption>;
   descfornec: string;
   recnoCabec: string;
-  numnf: string;
-  serienf: string;
-  datent = new Date();
+  numeroNF: string;
+  serieNF: string;
+  dataEntrada = new Date();
   isLoading: boolean = true;
   tableActions: Array<PoPageAction>;
   itemsFiltered: Array<any>;
@@ -38,13 +38,13 @@ export class VisualizaEntradaComponent implements OnInit {
   ngOnInit(): void {
     this.columns = [
       { property: 'item', label: 'Item', type: 'number', width: '5%'},
-      { property: 'descprod', label: 'Produto', type: 'string', width: '30%'},
+      { property: 'descricaoProduto', label: 'Produto', type: 'string', width: '30%'},
       { property: 'recnoProd', label: 'recno', type: 'string', width: '30%',visible: false},
-      { property: 'quant', label: 'Quantidade', type: 'number', width: '20%'},
-      { property: 'valunit', label: 'Valor Unitário', type: 'number', width: '20%'},
-      { property: 'valtot', label: 'Total', type: 'number', width: '15%'},
-      { property: 'numnf', label: 'numnf', type: 'number', width: '15%',visible: false},
-      { property: 'serienf', label: 'serienf', type: 'number', width: '15%',visible: false}
+      { property: 'quantidade', label: 'Quantidade', type: 'number', width: '20%'},
+      { property: 'valorUnitario', label: 'Valor Unitário', type: 'number', width: '20%'},
+      { property: 'valorTotal', label: 'Total', type: 'number', width: '15%'},
+      { property: 'numeroNF', label: 'numeroNF', type: 'number', width: '15%',visible: false},
+      { property: 'serieNF', label: 'serieNF', type: 'number', width: '15%',visible: false}
     ];
     this.visualEntrada();
   }
@@ -67,29 +67,29 @@ export class VisualizaEntradaComponent implements OnInit {
         return {
           recno: data.recno,
           descfornec: data.descfornec,
-          serienf: data.serienf,
-          numnf: data.numnf,
-          datent: data.datent,
+          serieNF: data.serieNF,
+          numeroNF: data.numeroNF,
+          dataEntrada: data.dataEntrada,
           item: data.item,
           recnoitem: data.recnoitem,
-          codprod: data.codprod,
-          valunit: data.valunit,
-          valtot: data.valtot,
-          quant: data.quant,
-          descprod: data.descprod,
+          codigoProduto: data.codigoProduto,
+          valorUnitario: data.valorUnitario,
+          valorTotal: data.valorTotal,
+          quantidade: data.quantidade,
+          descricaoProduto: data.descricaoProduto,
         }
       });
 
-      this.numnf = this.items[0].numnf
-      this.serienf = this.items[0].serienf
+      this.numeroNF = this.items[0].numeroNF
+      this.serieNF = this.items[0].serieNF
       this.descfornec = this.items[0].descfornec
-      this.datent = this.items[0].datent
+      this.dataEntrada = this.items[0].dataEntrada
       this.itemsFiltered = [];
       this.isLoading = false;
       this.SelFornec = [];
       for (let index = 0; index < this.items.length; index++) {
         this.itemsFiltered.push(
-          {  item: this.items[index].item += 1,descprod:  this.items[index].descprod, quant: this.items[index].quant, valunit: this.items[index].valunit, valtot: this.items[index].valtot }
+          {  item: this.items[index].item += 1,descricaoProduto:  this.items[index].descricaoProduto, quantidade: this.items[index].quantidade, valorUnitario: this.items[index].valorUnitario, valorTotal: this.items[index].valorTotal }
         );
       }
     });

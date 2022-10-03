@@ -11,9 +11,9 @@ import { AlmoxService } from 'src/app/almox/almox.service';
 })
 export class IncluiSaidaComponent implements OnInit {
   recnoIgreja: number;
-  valunit: number;
-  valtot: number;
-  quant: number;
+  valorUnitario: number;
+  valorTotal: number;
+  quantidade: number;
   aGrava: Array<any>;
   lOk: boolean = false;
   itens;
@@ -24,7 +24,7 @@ export class IncluiSaidaComponent implements OnInit {
   columns: Array<PoTableColumn>;
   tableActions: Array<PoPageAction>;
   isLoading: boolean = true;
-  datasaida = new Date();
+  dataSaida = new Date();
   now: Date;
   SelProduto: Array<PoSelectOption>;
   cProdutoSelecionado: string;
@@ -32,7 +32,7 @@ export class IncluiSaidaComponent implements OnInit {
   Solicitante: string;
   cpfSolicitante: string;
   laltera: boolean;
-  descprod: string;
+  descricaoProduto: string;
   recno: number;
   item: number;
   valunitAltera: number;
@@ -53,20 +53,20 @@ export class IncluiSaidaComponent implements OnInit {
   ngOnInit(): void {
     this.laltera = false;
     this.now = new Date();
-    this.datasaida = this.now;
+    this.dataSaida = this.now;
     this.itemsTable = [];
     this.item = 0;
     this.isLoading = false;
-    this.valunit = 0;
-    this.quant = 0 ;
+    this.valorUnitario = 0;
+    this.quantidade = 0 ;
 
     this.columns = [
       { property: 'item', label: 'Item', type: 'number', width: '5%'},
-      { property: 'descprod', label: 'produto', type: 'string', width: '30%'},
-      { property: 'recnoProd', label: 'recno', type: 'string', width: '30%',visible: false},
-      { property: 'quant', label: 'Quantidade', type: 'number', width: '20%'},
-      { property: 'valunit', label: 'Valor Unitário', type: 'number', width: '20%'},
-      { property: 'valtot', label: 'Total', type: 'number', width: '15%'},
+      { property: 'descricaoProduto', label: 'produto', type: 'string', width: '30%'},
+      { property: 'recnoProduto', label: 'recno', type: 'string', width: '30%',visible: false},
+      { property: 'quantidade', label: 'Quantidade', type: 'number', width: '20%'},
+      { property: 'valorUnitario', label: 'Valor Unitário', type: 'number', width: '20%'},
+      { property: 'valorTotal', label: 'Total', type: 'number', width: '15%'},
       { property: 'numnf', label: 'numnf', type: 'number', width: '15%',visible: false},
       { property: 'serienf', label: 'serienf', type: 'number', width: '15%',visible: false}
     ];
@@ -74,16 +74,16 @@ export class IncluiSaidaComponent implements OnInit {
       { action: this.alteraSaida.bind(this), label: 'Alterar' }
     ]
 
-    this.getFornec();
+    this.getIgreja();
     this.getProduto();
   }
 
   alteraSaida(event){
     this.nItemAtu = event.item;
-    this.cProdutoAlterado = event.recnoProd;
-    this.valunitAltera = event.valunit;
-    this.quantAltera = event.quant;
-    this.valtotAltera = event.valtot;
+    this.cProdutoAlterado = event.recnoProduto;
+    this.valunitAltera = event.valorUnitario;
+    this.quantAltera = event.quantidade;
+    this.valtotAltera = event.valorTotal;
     this.alteraItemModal.open();
     this.laltera = true;
   }
@@ -91,15 +91,15 @@ export class IncluiSaidaComponent implements OnInit {
   salvarAlteracao(){
     for(var i = 0; i < this.itens.length; i++){
       if (this.itens[i].recno == this.cProdutoAlterado){
-        this.descprodAlteracao = this.itens[i].descprod
+        this.descprodAlteracao = this.itens[i].descricaoProduto
       };
     }
     for(var i = 0; i < this.itemsTable.length; i++){
       if (this.itemsTable[i].item == this.nItemAtu){
-        this.itemsTable[i].descprod = this.descprodAlteracao;
-        this.itemsTable[i].quant = this.quantAltera;
-        this.itemsTable[i].valunit = this.valunitAltera;
-        this.itemsTable[i].valtot = this.quantAltera * this.valunitAltera;
+        this.itemsTable[i].descricaoProduto = this.descprodAlteracao;
+        this.itemsTable[i].quantidade = this.quantAltera;
+        this.itemsTable[i].valorUnitario = this.valunitAltera;
+        this.itemsTable[i].valorTotal = this.quantAltera * this.valunitAltera;
       };
     }
     this.laltera = false;
@@ -137,16 +137,16 @@ export class IncluiSaidaComponent implements OnInit {
 
   somaValor(valor, opcao){
     if (opcao == 1){
-      if (this.valunit == undefined){
-        this.valtot = parseInt(valor);
+      if (this.valorUnitario == undefined){
+        this.valorTotal = parseInt(valor);
       }else{
-        this.valtot = parseInt(valor) * this.valunit;
+        this.valorTotal = parseInt(valor) * this.valorUnitario;
       };
     }else{
-      if (this.quant == undefined){
-        this.valtot = parseInt(valor);
+      if (this.quantidade == undefined){
+        this.valorTotal = parseInt(valor);
       }else{
-        this.valtot = parseInt(valor) * this.quant;
+        this.valorTotal = parseInt(valor) * this.quantidade;
       }
     }
   }
@@ -167,7 +167,7 @@ export class IncluiSaidaComponent implements OnInit {
     }
   }
 
-  getFornec(){
+  getIgreja(){
     this.almoxService.getIgreja().subscribe(dados => {
       this.itens = [];
       this.itens = dados
@@ -175,7 +175,7 @@ export class IncluiSaidaComponent implements OnInit {
      .map( data => {
         return {
           recno: data.recno,
-          nome: data.descigreja,
+          nome: data.descricaoIgreja,
         };
     });
     this.selIgreja = [];
@@ -192,10 +192,8 @@ export class IncluiSaidaComponent implements OnInit {
   alteraProdutoSel(event){
     for (let index = 0; index < this.aProdutos.length; index++) {
       if (this.aProdutos[index].recno == event){
-        this.valunit = parseFloat(this.aProdutos[index].valunit)
+        this.valorUnitario = parseFloat(this.aProdutos[index].valorUnitario)
       }
-
-
     }
   }
 
@@ -203,26 +201,26 @@ export class IncluiSaidaComponent implements OnInit {
 
     if (this.laltera){
       for(var i = 0; i < this.itemsTable.length; i++){
-        if (this.itemsTable[i].recnoProd == this.recno){
-          this.itemsTable[i].descprod =  this.descprod;
+        if (this.itemsTable[i].recnoProduto == this.recno){
+          this.itemsTable[i].descricaoProduto =  this.descricaoProduto;
           this.itemsTable[i].item =  this.item;
           this.itemsTable[i].recno =  this.recno;
-          this.itemsTable[i].quant = this.quant;
-          this.itemsTable[i].valunit = this.valunit;
-          this.itemsTable[i].valtot = this.valtot;
+          this.itemsTable[i].quantidade = this.quantidade;
+          this.itemsTable[i].valorUnitario = this.valorUnitario;
+          this.itemsTable[i].valorTotal = this.valorTotal;
         }
       }
     }else{
       if (this.validaItens()){
         for(var i = 0; i < this.aProdutos.length; i++){
           if (this.aProdutos[i].recno == this.cProdutoSelecionado){
-            this.descprod = this.aProdutos[i].descprod;
+            this.descricaoProduto = this.aProdutos[i].descricaoProduto;
             this.recno = this.aProdutos[i].recno;
           }
         }
 
         this.itemsTable.push(
-          { recnoProd: this.recno, item: this.item += 1,descprod:this.descprod, quant:this.quant ,valunit:this.valunit, valtot: this.quant * this.valunit})
+          { recnoProduto: this.recno, item: this.item += 1,descricaoProduto:this.descricaoProduto, quantidade:this.quantidade ,valorUnitario:this.valorUnitario, valorTotal: this.quantidade * this.valorUnitario})
 
         this.laltera = false;
       }
@@ -231,7 +229,7 @@ export class IncluiSaidaComponent implements OnInit {
 
   gravaSaida(){
     this.aGrava = [];
-    this.aGrava.push([{recnoigreja: this.recnoIgreja, datasaida: this.datasaida, solicitante: this.Solicitante, cpfsolicitante: this.cpfSolicitante}])
+    this.aGrava.push([{recnoIgreja: this.recnoIgreja, dataSaida: this.dataSaida, solicitante: this.Solicitante, cpfSolicitante: this.cpfSolicitante}])
     this.aGrava.push([this.itemsTable]);
 
     this.almoxService.postSaida(this.aGrava).subscribe(() => {
@@ -241,9 +239,9 @@ export class IncluiSaidaComponent implements OnInit {
       //this.serienf = undefined;
       //this.numnf = undefined;
       //this.recnofornec = undefined;
-      //this.quant = undefined;
-      //this.valunit = undefined;
-      //this.valtot = undefined;
+      //this.quantidade = undefined;
+      //this.valorUnitario = undefined;
+      //this.valorTotal = undefined;
       location.reload();
     })
 
@@ -263,7 +261,7 @@ export class IncluiSaidaComponent implements OnInit {
     if(this.recnoIgreja == undefined ){
       this.poAlert.alert({title: "Atenção!", message: "Preencha a Igreja que deseja fazer a saída de materiais."});
       return false
-    }else if(this.datasaida == undefined) {
+    }else if(this.dataSaida == undefined) {
       this.poAlert.alert({title: "Atenção!", message: "Preencha a data de saída."});
       return false
     }else if (this.itemsTable.length == 0) {
@@ -276,13 +274,23 @@ export class IncluiSaidaComponent implements OnInit {
   }
 
   validaItens(){
-    if(this.valunit == undefined || this.valunit == 0 || this.quant == undefined || this.quant == 0 || this.cProdutoSelecionado == undefined  ){
+    if(this.valorUnitario == undefined || this.valorUnitario == 0 || this.quantidade == undefined || this.quantidade == 0 || this.cProdutoSelecionado == undefined  ){
       this.poAlert.alert({title: "Atenção!", message: "Preencha todos os itens para depois poder adicionar."});
       return false;
     }else{
-      return true
+      //Verifico se o produto possui saldo
+      //var saldoProduto = this.aProdutos.filter(p => p.value.includes(this.cProdutoSelecionado));
+      for (let index = 0; index < this.aProdutos.length; index++) {
+        if (this.aProdutos[index].recno == this.cProdutoSelecionado){
+          if(this.aProdutos[index].quantidadeEstoque < this.quantidade){
+            this.poAlert.alert({title: "Atenção!", message: "O produto não possui saldo para atender esta requisição, faça inventário ou dê entrada no produto."});
+            return false;
+          }else{
+            return true
+          }
+        } 
+      }
     }
-
   }
 
   getProduto(){
@@ -292,10 +300,11 @@ export class IncluiSaidaComponent implements OnInit {
       this.aProdutos = this.itens
      .map( data => {
         return {
-          cod: data.cod,
-          descprod: data.descprod,
+          codigoProduto: data.codigoProduto,
+          descricaoProduto: data.descricaoProduto,
           recno: data.recno,
-          valunit: data.valunit,
+          valorUnitario: data.valorUnitario,
+          quantidadeEstoque: data.quantidade,
         }
     });
 
@@ -303,7 +312,7 @@ export class IncluiSaidaComponent implements OnInit {
     if (this.aProdutos.length > 0) {
       for(var i = 0; i < this.aProdutos.length; i++){
         this.SelProduto.push(
-          { label: this.aProdutos[i].descprod, value: this.aProdutos[i].recno })
+          { label: this.aProdutos[i].descricaoProduto, value: this.aProdutos[i].recno })
       };
     }
     });

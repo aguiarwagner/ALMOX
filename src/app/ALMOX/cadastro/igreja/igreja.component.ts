@@ -30,8 +30,8 @@ export class IgrejaComponent implements OnInit {
   ) { }
   ngOnInit() {
     this.columns = [
-      { property: 'descigreja', label: 'Igreja', type: 'string', width: '40%'},
-      { property: 'codrelat', label: 'Código do Relatório', type: 'string', width: '15%'},
+      { property: 'descricaoIgreja', label: 'Igreja', type: 'string', width: '40%'},
+      { property: 'codigoRelatorio', label: 'Código do Relatório', type: 'string', width: '15%'},
       { property: 'atalho', label: 'Atalho', type: 'string', width: '15%'}
 
     ];
@@ -114,8 +114,8 @@ export class IgrejaComponent implements OnInit {
      .map( data => {
         return {
           recno: data.recno,
-          descigreja: data.descigreja,
-          codrelat: data.codrelat,
+          descricaoIgreja: data.descricaoIgreja,
+          codigoRelatorio: data.codigoRelatorio,
           atalho: data.atalho
         }
     });

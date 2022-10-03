@@ -6,7 +6,7 @@
         <po-container>
           <po-input
             class="po-md-4"
-            [(ngModel)]="mapa.codprod"
+            [(ngModel)]="mapa.codigoProduto"
             name="codigo"
             p-label='Código do produto'
             p-clean="true"
@@ -18,8 +18,8 @@
 
           <po-input
             class="po-md-8"
-            [(ngModel)]="mapa.descprod"
-            name="descprod"
+            [(ngModel)]="mapa.descricaoProduto"
+            name="descricaoProduto"
             p-label='Descrição do produto'
             p-clean="true"
             p-minlength="1"
@@ -27,8 +27,8 @@
             p-placeholder="Insira a descrição do produto.">
           </po-input>
           <po-number class="po-md-3"
-            name="valunit"
-            [(ngModel)]="mapa.valunit"
+            name="valorUnitario"
+            [(ngModel)]="mapa.valorUnitario"
             p-auto-focus="boolean"
             p-clean="true"
             p-label="Valor Unitário"
@@ -38,8 +38,8 @@
           </po-number>
 
           <po-number class="po-md-3"
-            name="estminimo"
-            [(ngModel)]="mapa.estminimo"
+            name="estoqueMinimo"
+            [(ngModel)]="mapa.estoqueMinimo"
             p-auto-focus="boolean"
             p-clean="true"
             p-label="Estoque mínimo."
@@ -51,10 +51,10 @@
 
 
         <po-select
-          id="unimed"
+          id="unidadeMedida"
           class="po-md-6"
-          name="unimed"
-          [(ngModel)]="mapa.unimed"
+          name="unidadeMedida"
+          [(ngModel)]="mapa.unidadeMedida"
           p-label="Unidade de Medida"
           [p-options]="SelUnimed"
           [p-required]="true">

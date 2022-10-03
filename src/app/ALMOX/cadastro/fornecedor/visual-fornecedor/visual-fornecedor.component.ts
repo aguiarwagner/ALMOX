@@ -13,7 +13,7 @@ export class VisualFornecedorComponent implements OnInit {
   mapa: Mapa = new Mapa();
   items: Array<any>;
   itens_mapa;
-  cod;
+  codigoProduto;
   lOk: boolean;
 
   constructor(
@@ -39,7 +39,7 @@ export class VisualFornecedorComponent implements OnInit {
           nome: data.nome,
           cnpj: data.cnpj,
           tipo: data.tipo,
-          tel: data.tel,
+          telefone: data.telefone,
           endereco: data.endereco,
           ultcompra: data.ultcompra,
           cep: data.cep
@@ -50,7 +50,7 @@ export class VisualFornecedorComponent implements OnInit {
         this.mapa.nome = this.items[i].nome;
         this.mapa.cnpj = this.items[i].cnpj;
         this.mapa.tipo = this.items[i].tipo;
-        this.mapa.tel = this.items[i].tel;
+        this.mapa.telefone = this.items[i].telefone;
         this.mapa.endereco = this.items[i].endereco;
         this.mapa.ultcompra = this.items[i].ultcompra;
         this.mapa.recno = this.items[i].recno;

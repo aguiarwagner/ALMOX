@@ -42,7 +42,7 @@ export class AlterarFornecedorComponent implements OnInit {
           nome: data.nome,
           cnpj: data.cnpj,
           tipo: data.tipo,
-          tel: data.tel,
+          telefone: data.telefone,
           endereco: data.endereco,
           ultcompra: data.ultcompra,
           recno: data.recno,
@@ -60,7 +60,7 @@ export class AlterarFornecedorComponent implements OnInit {
           this.mapa.tipo = 2;
         }
         this.mapa.nome = this.items[i].nome;
-        this.mapa.tel = this.items[i].tel;
+        this.mapa.telefone = this.items[i].telefone;
         this.mapa.endereco = this.items[i].endereco;
         this.mapa.ultcompra = this.items[i].ultcompra;
         this.mapa.recno = this.items[i].recno;

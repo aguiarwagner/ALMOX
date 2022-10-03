@@ -28,12 +28,12 @@ export class IncluirIgrejaComponent implements OnInit {
 
   gravaIgreja(){
     this.lOk = false;
-    if (this.mapa.descigreja == undefined) {
+    if (this.mapa.descricaoIgreja == undefined) {
       this.poNotification.success("Preencha a Igreja!");
       return;
     }
 
-    if (this.mapa.codrelat == undefined) {
+    if (this.mapa.codigoRelatorio == undefined) {
       this.poNotification.success("Preencha o código do relatório!");
       return;
     }

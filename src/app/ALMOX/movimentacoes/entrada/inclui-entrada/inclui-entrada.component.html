@@ -7,8 +7,8 @@
         <blockquote id="blockquote">Informações do Cabeçalho</blockquote>
         <po-select
           class="po-md-4"
-          [(ngModel)]="recnofornec"
-          name="descfornec"
+          [(ngModel)]="recnoFornecedor"
+          name="recnoFornecedor"
           p-label='Fornecedor'
           p-clean="true"
           p-minlength="1"
@@ -18,7 +18,7 @@
         </po-select>
         <po-input
           class="po-md-4"
-          [(ngModel)]="numnf"
+          [(ngModel)]="numeroNF"
           name="numnf"
           p-label='Nota Fiscal'
           p-clean="true"
@@ -28,7 +28,7 @@
         </po-input>
         <po-number class="po-md-2"
           name="serienf"
-          [(ngModel)]="serienf"
+          [(ngModel)]="serieNF"
           p-auto-focus="boolean"
           p-clean="true"
           p-label="Série"
@@ -38,8 +38,8 @@
         </po-number>
         <po-datepicker
           class="po-md-2"
-          name="datent"
-          [(ngModel)]="datent"
+          name="dataEntrada"
+          [(ngModel)]="dataEntrada"
           p-label="Data da Entrada"
         ></po-datepicker>
       </po-container>
@@ -47,7 +47,7 @@
         <blockquote id="blockquote">Informações dos Itens</blockquote>
         <po-select
           class="po-md-6"
-          name="descprod"
+          name="descricaoProduto"
           [p-label]='cProduto'
           [(ngModel)]="cProdutoSelecionado"
           p-clean="true"
@@ -59,7 +59,7 @@
         <po-number
           class="po-md-2"
           (p-change)="somaValor($event,1)"
-          [(ngModel)]="quant"
+          [(ngModel)]="quantidade"
           name="quant"
           p-label='Quantidade'
           p-clean="true"
@@ -68,8 +68,8 @@
           p-placeholder="Digite a quantidade">
         </po-number>
         <po-number class="po-md-2"
-          name="valunit"
-          [(ngModel)]="valunit"
+          name="valorUnitario"
+          [(ngModel)]="valorUnitario"
           (p-change)="somaValor($event,2)"
           p-auto-focus="boolean"
           p-clean="true"
@@ -80,7 +80,7 @@
         </po-number>
         <po-number class="po-md-2"
           name="valtotal"
-          [(ngModel)]="valtot"
+          [(ngModel)]="valorTotal"
           p-auto-focus="boolean"
           p-clean="false"
           p-disabled="true"
@@ -153,8 +153,8 @@
       <po-number
         class="po-md-2"
         (p-change)="somaValorAlteracao($event,1)"
-        [(ngModel)]="quantAltera"
-        name="quantAltera"
+        [(ngModel)]="quantidadeAltera"
+        name="quantidadeAltera"
         p-label='Quantidade'
         p-clean="true"
         p-minlength="1"
@@ -173,8 +173,8 @@
         p-required="true">
       </po-number>
       <po-number class="po-md-2"
-        name="valtotAltera"
-        [(ngModel)]="valtotAltera"
+        name="valorTotalAltera"
+        [(ngModel)]="valorTotalAltera"
         p-auto-focus="boolean"
         p-clean="false"
         p-disabled="true"

@@ -35,22 +35,22 @@ export class ExcluirIgrejaComponent implements OnInit {
        .map( data => {
           return {
             recno: data.recno,
-            descigreja: data.descigreja,
-            codrelat: data.codrelat,
+            descricaoIgreja: data.descricaoIgreja,
+            codigoRelatorio: data.codigoRelatorio,
             atalho: data.atalho,
             endereco: data.endereco,
-            tel: data.tel,
+            telefone: data.telefone,
             cep: data.cep
           }
       });
       if (this.items.length > 0) {
         for(var i = 0; i < this.items.length; i++){
           this.mapa.recno = this.items[i].recno;
-          this.mapa.descigreja = this.items[i].descigreja;
-          this.mapa.codrelat = this.items[i].codrelat;
+          this.mapa.descricaoIgreja = this.items[i].descricaoIgreja;
+          this.mapa.codigoRelatorio = this.items[i].codigoRelatorio;
           this.mapa.atalho = this.items[i].atalho;
           this.mapa.endereco = this.items[i].endereco;
-          this.mapa.tel = this.items[i].tel;
+          this.mapa.telefone = this.items[i].telefone;
           this.mapa.cep = this.items[i].cep;
         }
       }

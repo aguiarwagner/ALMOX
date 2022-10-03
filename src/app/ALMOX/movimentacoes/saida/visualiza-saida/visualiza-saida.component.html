@@ -1,4 +1,4 @@
-<po-page-default p-title="Visualização de Saída">
+<po-page-default p-title="Visualização de Saída de Produtos">
 
 
     <div class="po-row" >
@@ -13,8 +13,8 @@
           </po-container>
           <po-input
             class="po-md-4"
-            [(ngModel)]="descigreja"
-            name="descigreja"
+            [(ngModel)]="descricaoIgreja"
+            name="descricaoIgreja"
             p-label='Igreja'
             p-clean="true"
             p-minlength="1"
@@ -34,8 +34,8 @@
             p-placeholder="Solicitante">
           </po-input>
           <po-input class="po-md-2"
-            name="cpfsolicitante"
-            [(ngModel)]="cpfsolicitante"
+            name="cpfSolicitante"
+            [(ngModel)]="cpfSolicitante"
             p-auto-focus="boolean"
             p-clean="true"
             p-label="CPF Solicitante"
@@ -45,8 +45,8 @@
           </po-input>
           <po-datepicker
             class="po-md-2"
-            name="datasaida"
-            [(ngModel)]="datasaida"
+            name="dataSaida"
+            [(ngModel)]="dataSaida"
             p-disabled="true"
             p-label="Data da Saida"
           ></po-datepicker>

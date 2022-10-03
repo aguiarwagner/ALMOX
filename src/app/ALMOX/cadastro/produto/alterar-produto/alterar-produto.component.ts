@@ -15,7 +15,7 @@ export class AlterarProdutoComponent implements OnInit {
   itens_mapa;
   items: Array<any>;
   itemsFiltered: Array<any>;
-  cod;
+  codigoProduto;
   lOk: boolean;
 
   statusOptions: Array<PoSelectOption>
@@ -42,23 +42,23 @@ export class AlterarProdutoComponent implements OnInit {
       this.items = this.itens_mapa
      .map( data => {
         return {
-          cod: data.cod,
-          //datent: data.datent,
-          descprod: data.descprod,
-          //datsaida: data.datsaida,
-          estminimo: data.estminimo,
-          unimed: data.unimed,
-          valunit: data.valunit
+          codigoProduto: data.codigoProduto,
+          //dataEntrada: data.dataEntrada,
+          descricaoProduto: data.descricaoProduto,
+          //dataSaida: data.dataSaida,
+          estoqueMinimo: data.estoqueMinimo,
+          unidadeMedida: data.unidadeMedida,
+          valorUnitario: data.valorUnitario
         }
     });
     if (this.items.length > 0) {
       for(var i = 0; i < this.items.length; i++){
-        this.mapa.codprod = this.items[i].cod;
-        this.mapa.descprod = this.items[i].descprod;
-        this.mapa.valunit = this.items[i].valunit;
-        this.mapa.estminimo = this.items[i].estminimo;
-        this.mapa.unimed = this.items[i].unimed;
-        this.mapa.estminimo = this.items[i].estminimo;
+        this.mapa.codigoProduto = this.items[i].codigoProduto;
+        this.mapa.descricaoProduto = this.items[i].descricaoProduto;
+        this.mapa.valorUnitario = this.items[i].valorUnitario;
+        this.mapa.estoqueMinimo = this.items[i].estoqueMinimo;
+        this.mapa.unidadeMedida = this.items[i].unidadeMedida;
+        this.mapa.estoqueMinimo = this.items[i].estoqueMinimo;
       }
     }
     })

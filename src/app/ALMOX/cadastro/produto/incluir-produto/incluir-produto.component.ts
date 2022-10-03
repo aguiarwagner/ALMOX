@@ -22,14 +22,14 @@ export class IncluirProdutoComponent implements OnInit {
   editProdutoBreadcrumb: PoBreadcrumb;
   newProdutoActions: Array<PoPageAction>;
   mapa: Mapa = new Mapa();
-  codprod: string;
-  unimed: string;
+  codigoProduto: string;
+  unidadeMedida: string;
  // private literalsSubscription: Subscription;
   confirmReturnToListAction: PoModalAction;
-  descprod: string;
+  descricaoProduto: string;
   lOk: boolean;
-  valunit: number;
-  estminimo: number;
+  valorUnitario: number;
+  estoqueMinimo: number;
   statusOptions: Array<PoSelectOption>
 
   constructor(
@@ -44,17 +44,17 @@ export class IncluirProdutoComponent implements OnInit {
 
   gravaProd() {
 
-    if (this.mapa.descprod == undefined) {
+    if (this.mapa.descricaoProduto == undefined) {
       this.poNotification.success("Preencha a descrção do produto!");
       return;
     }
 
-    if (this.mapa.codprod == undefined) {
+    if (this.mapa.codigoProduto == undefined) {
       this.poNotification.success("Preencha o código do produto!");
       return;
     }
 
-    if (this.mapa.unimed == undefined) {
+    if (this.mapa.unidadeMedida == undefined) {
       this.poNotification.success("Preencha a unidade de medida!");
       return;
     }

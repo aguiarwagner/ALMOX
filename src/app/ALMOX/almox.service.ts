@@ -27,7 +27,7 @@ constructor(
 
   getProductid(id: string): Observable<ResponsePageable> {
 
-    return this.http.get<ResponsePageable>('http://localhost:5000/produtos?codprod='+id);
+    return this.http.get<ResponsePageable>('http://localhost:5000/produtos?codigoProduto='+id);
 
   }
 
@@ -65,12 +65,16 @@ constructor(
     return this.http.post('http://localhost:5000/entrada', mapa);
   }
 
-  deleteProduct(codprod: string)  {
-    return this.http.delete('http://localhost:5000/produtos?codprod='+codprod);
+  deleteProduct(codigoProduto: string)  {
+    return this.http.delete('http://localhost:5000/produtos?codigoProduto='+codigoProduto);
   }
 
   deleteEntrada(recno: string)  {
     return this.http.delete('http://localhost:5000/entrada?recno='+recno);
+  }
+
+  deleteSaida(recno: string)  {
+    return this.http.delete('http://localhost:5000/saida?recno='+recno);
   }
 
   getIgreja(): Observable<ResponsePageable> {
@@ -87,6 +91,10 @@ constructor(
 
   postSaida(mapa)  {
     return this.http.post('http://localhost:5000/saida', mapa);
+  }
+
+  putSaida(mapa)  {
+    return this.http.put('http://localhost:5000/saida', mapa);
   }
 
   putIgreja(mapa: Mapa)  {

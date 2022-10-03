@@ -1,16 +1,16 @@
 export class Mapa {
   id: number;
-  codprod: string;
-  descprod: string;
-  estminimo: number;
-  unimed: string;
-  valunit: number;
+  codigoProduto: string;
+  descricaoProduto: string;
+  estoqueMinimo: number;
+  unidadeMedida: string;
+  valorUnitario: number;
   endereco: string;
-  tel: string;
+  telefone: string;
   cep: string;
   atalho: number;
-  codrelat: string;
-  descigreja: string;
+  codigoRelatorio: string;
+  descricaoIgreja: string;
   produto: string;
   recno: number;
   quant: number;
@@ -21,7 +21,7 @@ export class Mapa {
   ultcompra: string;
   descfornec: string;
   codifornec: string;
-  datent: string;
+  dataEntrada: string;
   numnf: string;
   serienf: string;
 

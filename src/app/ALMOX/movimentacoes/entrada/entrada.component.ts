@@ -22,9 +22,9 @@ export class EntradaComponent implements OnInit {
   breadcrumb: PoBreadcrumb;
   descfornec;
   recno;
-  datent;
-  numnf;
-  serienf;
+  dataEntrada;
+  numeroNF;
+  serieNF;
 
   itens_mapa;
   items: Array<any>;
@@ -38,14 +38,14 @@ export class EntradaComponent implements OnInit {
     this.columns = [
 
       { property: 'descfornec', label: 'Fornecedor', type: 'string', width: '30%'},
-      { property: 'datent', label: 'Data entrada', type: 'date', width: '20%'},
-      { property: 'numnf', label: 'Numero da NF', type: 'string', width: '15%'},
-      { property: 'serienf', label: 'Serie da NF', type: 'string', width: '10%'}
+      { property: 'dataEntrada', label: 'Data entrada', type: 'date', width: '20%'},
+      { property: 'numeroNF', label: 'Numero da NF', type: 'string', width: '15%'},
+      { property: 'serieNF', label: 'Serie da NF', type: 'string', width: '10%'}
 
     ];
     this.tableActions = [
       { action: this.visualEntrada.bind(this), label: "Visualizar" },
-      { action: this.alteraEntrada.bind(this), label: 'Alterar' },
+      //{ action: this.alteraEntrada.bind(this), label: 'Alterar' },
       { action: this.excluirEntrada.bind(this), label: 'Excluir' }
 
      ]
@@ -73,26 +73,26 @@ export class EntradaComponent implements OnInit {
         return {
           recno: data.recno,
           descfornec: data.descfornec,
-          serienf: data.serienf,
-          datent: data.datent,
-          numnf: data.numnf,
+          serieNF: data.serieNF,
+          dataEntrada: data.dataEntrada,
+          numeroNF: data.numeroNF,
         }
     });
     if (this.items.length > 0) {
       for(var i = 0; i < this.items.length; i++){
         this.descfornec = this.items[i].descfornec;
         this.recno     = this.items[i].recno;
-        this.serienf = this.items[i].serienf;
-        this.datent = this.items[i].datent;
-        this.numnf = this.items[i].numnf;
+        this.serieNF = this.items[i].serieNF;
+        this.dataEntrada = this.items[i].dataEntrada;
+        this.numeroNF = this.items[i].numeroNF;
       }
     }
     this.itemsFiltered = [...this.items];
     this.itemsFiltered.sort(function (a, b) { // Ordena array pelo Total de Tickets
-      if (a.datent > b.datent) {
+      if (a.dataEntrada > b.dataEntrada) {
         return -1;
       }
-      if (a.datent < b.datents) {
+      if (a.dataEntrada < b.datents) {
         return 1;
       }
         return 0;

@@ -38,7 +38,7 @@ export class FornecedorComponent implements OnInit {
       { property: 'cnpj', label: 'CNPJ', type: 'string', width: '15%'},
       { property: 'ultcompra', label: 'Última Compra', type: 'string', width: '30%'},
       { property: 'tipo', label: 'Tipo', type: 'string', width: '10%'}
-      //{ property: 'unimed', label: 'Unidade de Medida', type: 'string', width: '10%'}
+      //{ property: 'unidadeMedida', label: 'Unidade de Medida', type: 'string', width: '10%'}
 
     ];
     this.tableActions = [
@@ -133,7 +133,7 @@ export class FornecedorComponent implements OnInit {
           cnpj: data.cnpj,
           ultcompra: data.ultcompra,
           tipo: data.tipo,
-          tel: data.tel,
+          telefone: data.telefone,
           endereco: data.endereco
         }
     });

@@ -12,16 +12,16 @@ export class VisualizaSaidaComponent implements OnInit {
   items: Array<any>;
   itemsFiltered: Array<any>;
   itens;
-  descigreja: string = "";
-  codrelat: string;
-  datasaida = new Date();
-  descprod: string;
+  descricaoIgreja: string = "";
+  codigoRelatorio: string;
+  dataSaida = new Date();
+  descricaoProduto: string;
   solicitante: string = "";
-  cpfsolicitante: string = "";
+  cpfSolicitante: string = "";
   item: number;
   quant: number;
-  valunit: number;
-  valtot: number;
+  valorUnitario: number;
+  valorTotal: number;
   isLoading: boolean = false;
   SelFornec: Array<PoSelectOption>;
   columns: Array<PoTableColumn>;
@@ -37,13 +37,14 @@ export class VisualizaSaidaComponent implements OnInit {
   ngOnInit(): void {
     this.columns = [
       { property: 'item', label: 'Item', type: 'number', width: '5%'},
-      { property: 'descprod', label: 'Produto', type: 'string', width: '30%'},
-      { property: 'quant', label: 'Quantidade', type: 'number', width: '20%'},
-      { property: 'valunit', label: 'Valor Unitário', type: 'number', width: '20%'},
-      { property: 'valtot', label: 'Total', type: 'number', width: '15%'},
+      { property: 'descricaoProduto', label: 'Produto', type: 'string', width: '30%'},
+      { property: 'quantidade', label: 'Quantidade', type: 'number', width: '20%'},
+      { property: 'valorUnitario', label: 'Valor Unitário', type: 'number', width: '20%'},
+      { property: 'valorTotal', label: 'Total', type: 'number', width: '15%'},
     ];
     this.visualSaida();
   }
+
   visualSaida(){
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.almoxService.getSaida(id).subscribe(dados => {
@@ -53,26 +54,26 @@ export class VisualizaSaidaComponent implements OnInit {
      .map( data => {
         return {
           recno: data.recno,
-          descigreja: data.descigreja,
-          datasaida: data.datasaida,
-          codrelat: data.codrelat,
+          descricaoIgreja: data.descricaoIgreja,
+          dataSaida: data.dataSaida,
+          codigoRelatorio: data.codigoRelatorio,
           solicitante: data.solicitante,
-          cpfsolicitante: data.cpfsolicitante,
+          cpfSolicitante: data.cpfSolicitante,
           item: data.item,
-          valtot: data.valtot,
+          valorTotal: data.valorTotal,
           recnoprod: data.recnoprod,
-          codprod: data.codprod,
-          valunit: data.valunit,
-          quant: data.quant,
-          descprod: data.descprod,
+          codigoProduto: data.codigoProduto,
+          valorUnitario: data.valorUnitario,
+          quantidade: data.quantidade,
+          descricaoProduto: data.descricaoProduto,
         }
       });
 
-      this.descigreja = this.items[0].descigreja
-      this.codrelat = this.items[0].codrelat
-      this.datasaida = this.items[0].datasaida
+      this.descricaoIgreja = this.items[0].descricaoIgreja
+      this.codigoRelatorio = this.items[0].codigoRelatorio
+      this.dataSaida = this.items[0].dataSaida
       this.solicitante = this.items[0].solicitante
-      this.cpfsolicitante = this.items[0].cpfsolicitante
+      this.cpfSolicitante = this.items[0].cpfSolicitante
 
 
       this.itemsFiltered = [];
@@ -80,12 +81,13 @@ export class VisualizaSaidaComponent implements OnInit {
       this.SelFornec = [];
       for (let index = 0; index < this.items.length; index++) {
         this.itemsFiltered.push(
-          {  item: this.items[index].item += 1,descprod:  this.items[index].descprod, quant: this.items[index].quant, valunit: this.items[index].valunit, valtot: this.items[index].valtot }
+          {  item: this.items[index].item,descricaoProduto:  this.items[index].descricaoProduto, quantidade: this.items[index].quantidade, valorUnitario: this.items[index].valorUnitario, valorTotal: this.items[index].valorTotal }
         );
       }
     });
 
   }
+
   Cancel(){
     this.router.navigate(['saida']);
   }

@@ -39,8 +39,8 @@
         </po-input>
         <po-datepicker
           class="po-md-2"
-          name="datasaida"
-          [(ngModel)]="datasaida"
+          name="dataSaida"
+          [(ngModel)]="dataSaida"
           p-label="Data da Saída">
         </po-datepicker>
 
@@ -50,7 +50,7 @@
         <blockquote id="blockquote">Informações dos Itens</blockquote>
         <po-select
           class="po-md-6"
-          name="descprod"
+          name="descricaoProduto"
           p-label='Produto'
           [(ngModel)]="cProdutoSelecionado"
           p-clean="true"
@@ -63,8 +63,8 @@
         <po-number
           class="po-md-2"
           (p-change)="somaValor($event,1)"
-          [(ngModel)]="quant"
-          name="quant"
+          [(ngModel)]="quantidade"
+          name="quantidade"
           p-label='Quantidade'
           p-clean="true"
           p-minlength="1"
@@ -72,8 +72,8 @@
           p-placeholder="Digite a quantidade">
         </po-number>
         <po-number class="po-md-2"
-          name="valunit"
-          [(ngModel)]="valunit"
+          name="valorUnitario"
+          [(ngModel)]="valorUnitario"
           (p-change)="somaValor($event,2)"
           p-auto-focus="boolean"
           p-clean="true"
@@ -83,8 +83,8 @@
           p-required="true">
         </po-number>
         <po-number class="po-md-2"
-          name="valtotal"
-          [(ngModel)]="valtot"
+          name="valorTotal"
+          [(ngModel)]="valorTotal"
           p-auto-focus="boolean"
           p-clean="false"
           p-disabled="true"

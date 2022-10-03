@@ -24,15 +24,14 @@ export class ProdutoComponent implements OnInit {
   items: Array<any>;
   breadcrumb: PoBreadcrumb;
   disclaimerGroup: PoDisclaimerGroup;
-  cod;
-  codprod;
+  codigoProduto;  
   recno;
-  descprod;
-  valunit;
-  datent;
-  datsaida;
-  estminimo;
-  unimed;
+  descricaoProduto;
+  valorUnitario;
+  dataEntrada;
+  dataSaida;
+  estoqueMinimo;
+  unidadeMedida;
   lControlFilter: boolean = false;
 
   private disclaimers: Array<PoDisclaimer> = [];
@@ -47,10 +46,10 @@ export class ProdutoComponent implements OnInit {
   ngOnInit() {
 
     this.columns = [
-      { property: 'cod', label: 'Código do Produto', type: 'string', width: '10%'},
-      { property: 'descprod', label: 'Descrição do Produto', type: 'string', width: '30%'},
-      { property: 'valunit', label: 'Valor Unitário', type: 'string', width: '15%'},
-      { property: 'unimed', label: 'Unidade de Medida', type: 'string', width: '10%'}
+      { property: 'codigoProduto', label: 'Código do Produto', type: 'string', width: '10%'},
+      { property: 'descricaoProduto', label: 'Descrição do Produto', type: 'string', width: '30%'},
+      { property: 'valorUnitario', label: 'Valor Unitário', type: 'string', width: '15%'},
+      { property: 'unidadeMedida', label: 'Unidade de Medida', type: 'string', width: '10%'}
 
     ];
     this.tableActions = [
@@ -82,22 +81,22 @@ export class ProdutoComponent implements OnInit {
       this.items = this.itens_mapa
      .map( data => {
         return {
-          cod: data.cod,
-          descprod: data.descprod,
-          unimed: data.unimed,
-          valunit: data.valunit
+          codigoProduto: data.codigoProduto,
+          descricaoProduto: data.descricaoProduto,
+          unidadeMedida: data.unidadeMedida,
+          valorUnitario: data.valorUnitario
         }
     });
     if (this.items.length > 0) {
       for(var i = 0; i < this.items.length; i++){
-        this.codprod = this.items[i].codprod;
+        this.codigoProduto = this.items[i].codigoProduto;
         this.recno     = this.items[i].recno;
-        this.descprod = this.items[i].descprod;
-        this.valunit = this.items[i].valunit;
-        this.datent = this.items[i].datent;
-        this.datsaida = this.items[i].datsaida;
-        this.estminimo = this.items[i].estminimo;
-        this.unimed = this.items[i].unimed;
+        this.descricaoProduto = this.items[i].descricaoProduto;
+        this.valorUnitario = this.items[i].valorUnitario;
+        this.dataEntrada = this.items[i].dataEntrada;
+        this.dataSaida = this.items[i].dataSaida;
+        this.estoqueMinimo = this.items[i].estoqueMinimo;
+        this.unidadeMedida = this.items[i].unidadeMedida;
         //this.itemsFiltered = this.items;
       }
     }
@@ -108,12 +107,12 @@ export class ProdutoComponent implements OnInit {
   };
 
   private excluirProduto(mapa) {
-      this.router.navigate(['produto/excluirproduto', mapa.cod]);
+      this.router.navigate(['produto/excluirproduto', mapa.codigoProduto]);
       };
 
   private visualProduto(mapa) {
 
-  this.router.navigate(['produto/visualproduto', mapa.cod]);
+  this.router.navigate(['produto/visualproduto', mapa.codigoProduto]);
   };
 
   //Filtro
@@ -171,7 +170,7 @@ export class ProdutoComponent implements OnInit {
   }
 
   private alteraProduto(mapa) {
-    this.router.navigate(['produto/alteraproduto', mapa.cod]);
+    this.router.navigate(['produto/alteraproduto', mapa.codigoProduto]);
   }
 
   inCluiProd(){
