@@ -1,1 +1,40 @@
-<p>inventario works!</p>
+
+  <po-page-list
+
+  p-show-more-disabled="true"
+  p-title= "Inventário de Produtos"
+  [p-actions]="pageActions"
+  [p-breadcrumb]="breadcrumb"
+  [p-disclaimer-group]="disclaimerGroup"
+  [p-filter]="filterSettings">
+
+  <po-container >
+  <po-button
+    id="btngerar"
+    class="po-md-12"
+    (p-click)= "incluirInventario()"
+    p-icon="po-icon po-icon-plus"
+    p-type="primary"
+    [p-loading]="loadButton"
+    [p-label]="labelButton"
+    p-primary="true">
+  </po-button>
+</po-container>
+
+<po-container>
+  <po-table
+    p-selectable="true"
+    p-hide-select-all="false"
+    [p-selectable]="false"
+    [p-loading]="isLoading"
+    [p-actions]="tableActions"
+    [p-columns]="columns"
+    p-sort="true"
+    [p-items]="itemsFiltered">
+  </po-table>
+
+</po-container>
+</po-page-list>
+
+
+

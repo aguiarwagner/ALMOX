@@ -116,6 +116,7 @@ export class SaidaComponent implements OnInit {
   incluiSaida(){
     this.router.navigate(['saida/incluisaida']);
   }
+  
   //Filtro
   public readonly filterSettings: PoPageFilter = {
     action: this.filterAction.bind(this),

@@ -33,15 +33,20 @@ export class IncluiSaidaComponent implements OnInit {
   cpfSolicitante: string;
   laltera: boolean;
   descricaoProduto: string;
+  saldoProduto: string;
+  quantidadeEstoque: number;
   recno: number;
   item: number;
   valunitAltera: number;
+  valorTotalEstoque: number;
+  valorUnitarioEstoque: number;
   valtotAltera: number;
   quantAltera: number;
   descprodAlteracao: string;
   nItemAtu: number;
 
   @ViewChild('alteraItemModal') alteraItemModal: PoModalComponent;
+  @ViewChild('mostraSaldoProduto') mostraSaldoProduto: PoModalComponent;
 
   constructor(
     private almoxService: AlmoxService,
@@ -60,6 +65,8 @@ export class IncluiSaidaComponent implements OnInit {
     this.valorUnitario = 0;
     this.quantidade = 0 ;
 
+
+
     this.columns = [
       { property: 'item', label: 'Item', type: 'number', width: '5%'},
       { property: 'descricaoProduto', label: 'produto', type: 'string', width: '30%'},
@@ -76,6 +83,28 @@ export class IncluiSaidaComponent implements OnInit {
 
     this.getIgreja();
     this.getProduto();
+  }
+
+  mostraSaldo(event){
+    let teste = "";
+    if (this.cProdutoSelecionado == '' || this.cProdutoSelecionado == undefined){
+      this.poNotification.information("Selecione um produto para mostrar o saldo através da tecla F1");
+    }else{
+      for (let index = 0; index < this.aProdutos.length; index++) {
+        if(this.aProdutos[index].recno == this.cProdutoSelecionado){
+          this.saldoProduto = this.cProdutoSelecionado;
+          this.quantidadeEstoque = this.aProdutos[index].quantidadeEstoque;
+          this.valorUnitarioEstoque = this.aProdutos[index].valorUnitario;
+          this.valorTotalEstoque = this.quantidadeEstoque * this.valorUnitarioEstoque;
+          this.mostraSaldoProduto.open();
+        }
+
+        
+      }
+      this.aProdutos
+
+    }
+    
   }
 
   alteraSaida(event){
@@ -133,9 +162,10 @@ export class IncluiSaidaComponent implements OnInit {
       this.itemsTable[index].item = index + 1;
     }
     this.laltera = false;
-  };
+  };  
 
   somaValor(valor, opcao){
+    //this.shortcut.add()
     if (opcao == 1){
       if (this.valorUnitario == undefined){
         this.valorTotal = parseInt(valor);

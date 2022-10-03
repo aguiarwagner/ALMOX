@@ -69,6 +69,7 @@
           p-clean="true"
           p-minlength="1"
           [p-required]="false"
+          (keyup.F1)="mostraSaldo($event)"          
           p-placeholder="Digite a quantidade">
         </po-number>
         <po-number class="po-md-2"
@@ -184,6 +185,60 @@
         p-disabled="true"
         p-enable="false"
         p-label="Valor Total"
+        p-optional="true"
+        p-placeholder="Valor total"
+        p-required="true">
+      </po-number>
+    </po-widget>
+  </po-modal>
+
+  <po-modal #mostraSaldoProduto p-click-out="true"
+    p-title="Saldo do produto" p-size="auto"    
+    >
+
+    <po-widget class="po-font-text-large-bold po-text-left po-xl-12 po-lg-12 po-md-12 po-sm-12">
+      <po-select
+        class="po-md-6"
+        name="saldoProduto"
+        p-label='Produto'
+        [(ngModel)]="saldoProduto"
+        p-clean="true"
+        p-minlength="1"   
+        [p-options]="SelProduto"
+        p-disabled="true"     
+        [p-required]="true">
+      </po-select>
+      <po-number
+        class="po-md-2"
+        (p-change)="somaValorAlteracao($event,1)"
+        [(ngModel)]="quantidadeEstoque"
+        name="quantAltera"
+        p-label='Quantidade'
+        p-disabled="true"
+        p-clean="true"
+        p-minlength="1"
+        [p-required]="true">
+      </po-number>
+      <po-number class="po-md-2"
+        name="valorUnitarioEstoque"
+        [(ngModel)]="valorUnitarioEstoque"
+        p-auto-focus="boolean"
+        p-clean="true"
+        p-label="Valor Unitário"
+        p-optional="true"
+        p-disabled="true"
+        p-placeholder="Valor unitário"
+        p-required="true">
+      </po-number>
+      <po-number class="po-md-2"
+        name="valorTotalEstoque"
+        [(ngModel)]="valorTotalEstoque"
+        p-auto-focus="boolean"
+        p-clean="false"
+        p-disabled="true"
+        p-enable="false"
+        p-label="Valor Total"
+        p-disabled="true"
         p-optional="true"
         p-placeholder="Valor total"
         p-required="true">
