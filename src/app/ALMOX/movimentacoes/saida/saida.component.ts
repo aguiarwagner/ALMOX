@@ -51,7 +51,8 @@ export class SaidaComponent implements OnInit {
     this.tableActions = [
       { action: this.visualSaida.bind(this), label: "Visualizar" },
       { action: this.alteraSaida.bind(this), label: 'Alterar' },
-      { action: this.excluirSaida.bind(this), label: 'Excluir' }
+      { action: this.excluirSaida.bind(this), label: 'Excluir' },
+      { action: this.imprimeSaida.bind(this), label: 'Imprimir' }
 
      ]
      this.disclaimerGroup = {
@@ -116,6 +117,10 @@ export class SaidaComponent implements OnInit {
   incluiSaida(){
     this.router.navigate(['saida/incluisaida']);
   }
+
+  imprimeSaida(mapa){
+    this.router.navigate(['saida/imprimesaida', mapa.recno]);
+  }
   
   //Filtro
   public readonly filterSettings: PoPageFilter = {
@@ -174,6 +179,6 @@ export class SaidaComponent implements OnInit {
   incluir(){
     this.router.navigate(['saida/incluisaida']);
 
-}
+  }
 
 }

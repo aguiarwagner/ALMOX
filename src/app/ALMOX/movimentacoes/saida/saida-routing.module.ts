@@ -1,3 +1,4 @@
+import { ImprimeSaidaComponent } from './imprime-saida/imprime-saida.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'excluisaida/:id', component: ExcluiSaidaComponent },
   { path: 'alterasaida/:id', component: AlteraSaidaComponent },
   { path: 'visualsaida/:id', component: VisualizaSaidaComponent },
+  { path: 'imprimesaida/:id', component: ImprimeSaidaComponent },
 ];
 
 @NgModule({

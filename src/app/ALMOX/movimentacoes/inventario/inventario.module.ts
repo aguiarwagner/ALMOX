@@ -8,6 +8,10 @@ import { PoModule } from '@po-ui/ng-components';
 import { AlmoxService } from '../../almox.service';
 import { inventarioRoutingModule } from './inventario-routing.module';
 import { InventarioComponent } from './inventario.component';
+import { IncluiInventarioComponent } from './inclui-inventario/inclui-inventario.component';
+import { AlteraInventarioComponent } from './altera-inventario/altera-inventario.component';
+import { ExcluiInventarioComponent } from './exclui-inventario/exclui-inventario.component';
+import { VisualizaInventarioComponent } from './visualiza-inventario/visualiza-inventario.component';
 
 
 @NgModule({
@@ -22,7 +26,15 @@ import { InventarioComponent } from './inventario.component';
   declarations: [
 
     //VisualProdutoComponent,
-    InventarioComponent
+    InventarioComponent,
+
+    IncluiInventarioComponent,
+
+    AlteraInventarioComponent,
+
+    ExcluiInventarioComponent,
+
+    VisualizaInventarioComponent
 
     //AlmoxService
 

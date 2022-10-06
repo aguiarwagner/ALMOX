@@ -13,6 +13,7 @@ import { ExcluiSaidaComponent } from './exclui-saida/exclui-saida.component';
 import { AlteraSaidaComponent } from './altera-saida/altera-saida.component';
 import { IncluiSaidaComponent } from './inclui-saida/inclui-saida.component';
 import { VisualizaSaidaComponent } from './visualiza-saida/visualiza-saida.component';
+import { ImprimeSaidaComponent } from './imprime-saida/imprime-saida.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { VisualizaSaidaComponent } from './visualiza-saida/visualiza-saida.compo
     ExcluiSaidaComponent,
     AlteraSaidaComponent,
     VisualizaSaidaComponent,
-    IncluiSaidaComponent
+    IncluiSaidaComponent,
+    ImprimeSaidaComponent
   ],
   exports: [
     SaidaComponent
